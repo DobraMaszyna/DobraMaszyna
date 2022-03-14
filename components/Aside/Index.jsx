@@ -16,7 +16,7 @@ const AsideStyled = styled.div`
   flex-direction: column;
   width: 350px;
   height: 100%;
-  padding: 20px;
+  padding: 40px 50px;
 `;
 
 export default Aside;

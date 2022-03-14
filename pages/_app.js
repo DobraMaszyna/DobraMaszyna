@@ -7,13 +7,13 @@ const GlobalStyle = createGlobalStyle`
     background-color: #F4F5F7;
     width: 100vw;
     height: 100vh;
+    color: #353839;
   }
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #353839;
   }
 `;
 

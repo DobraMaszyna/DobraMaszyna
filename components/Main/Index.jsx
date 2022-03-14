@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import ProductList from '../ProductList/Index';
 
 const Main = () => {
   return (
     <MainStyled>
-      <ContentContainer></ContentContainer>
+      <ContentContainer>
+        <ProductList />
+      </ContentContainer>
     </MainStyled>
   );
 };
@@ -15,10 +18,10 @@ const MainStyled = styled.div`
 `;
 
 const ContentContainer = styled.div`
-  width: 90%;
+  width: 92%;
   height: 100%;
-  margin: auto;
-  border-radius: 20px 20px 0 0;
+  margin-right: auto;
+  border-radius: 41px 41px 0 0;
   background-color: #fff;
 `;
 

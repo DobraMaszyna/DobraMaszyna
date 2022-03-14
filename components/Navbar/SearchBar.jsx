@@ -9,8 +9,13 @@ const SearchBarStyled = styled.input`
   margin: auto;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   height: 41px;
+
+  &::placeholder {
+    font-size: 1rem;
+    font-weight: regular;
+  }
 `;
 
 export default SearchBar;

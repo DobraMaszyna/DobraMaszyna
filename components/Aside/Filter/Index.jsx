@@ -5,8 +5,8 @@ import FilterSection from './FilterSection';
 const Filter = () => {
   return (
     <FilterStyled>
-      <h1>Fitruj</h1>
-      <FilterSection title='Cena'></FilterSection>
+      <h1>Filtruj</h1>
+      <FilterSection color='red' title='Cena'></FilterSection>
     </FilterStyled>
   );
 };
