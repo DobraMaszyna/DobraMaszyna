@@ -3,11 +3,11 @@ import styled from 'styled-components';
 const ProductInfo = () => {
   return (
     <ProductInfoStyled>
-      <h2>MODEL</h2>
-      <h3>MARKA</h3>
+      <h1>bernette Sew&Go 8</h1>
+      <h2>Bernia AG</h2>
 
-      <h3>Stara Cena</h3>
-      <h1>Nowa Cena</h1>
+      <h3><s>2100.00 zł</s></h3>
+      <h4>1899.00 zł</h4>
     </ProductInfoStyled>
   );
 };
@@ -15,8 +15,32 @@ const ProductInfo = () => {
 const ProductInfoStyled = styled.div`
   width: 40%;
   height: 100%;
-  background-color: red;
+
   h1 {
+    margin-top: 12%;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+  }
+  h2{
+    text-align: center;
+    padding-right: 28%;
+    width: 100%;
+    font-weight: lighter;
+  }
+  h3{
+    margin-top: 15%;
+    width: 100%;
+    text-align: center;
+    color: #F28D94;
+    font-size: 1.5rem;
+    padding-right: 18%
+  }
+  h4{
+    width: 100%;
+    text-align: center;
+    color: #8E94F2;
+    font-size: 3rem;
   }
 `;
 
