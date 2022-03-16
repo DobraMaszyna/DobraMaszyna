@@ -1,16 +1,26 @@
 import styled from 'styled-components';
+
 import Product from './Product/Index';
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
   return (
     <ProductListStyled>
-      <Product />
+      {products.map((product) => (
+        <Product
+          product={product.product}
+          producer={product.producer}
+          image={product.image}
+          price={product.price}
+          priceBefore={product.priceBefore}
+        />
+      ))}
     </ProductListStyled>
   );
 };
 
 const ProductListStyled = styled.ul`
   width: 100%;
+  height: 100%;
   padding: 80px 100px;
   box-sizing: border-box;
 `;

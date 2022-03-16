@@ -7,6 +7,8 @@ const Filter = () => {
     <FilterStyled>
       <h1>Filtruj</h1>
       <FilterSection color='red' title='Cena'></FilterSection>
+      <MinPriceStyled type='number' value='1000' />
+      <MaxPriceStyled type='number' value='2000' />
     </FilterStyled>
   );
 };
@@ -20,5 +22,9 @@ const FilterStyled = styled.div`
     font-weight: bold;
   }
 `;
+
+const MinPriceStyled = styled.input``;
+
+const MaxPriceStyled = styled.input``;
 
 export default Filter;

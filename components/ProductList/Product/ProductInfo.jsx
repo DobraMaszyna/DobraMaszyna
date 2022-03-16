@@ -1,46 +1,54 @@
 import styled from 'styled-components';
 
-const ProductInfo = () => {
+const ProductInfo = ({ product, producer, price, priceBefore }) => {
   return (
     <ProductInfoStyled>
-      <h1>bernette Sew&Go 8</h1>
-      <h2>Bernia AG</h2>
+      <div>
+        <h1 className='product_model'>{product}</h1>
+        <h2 className='product_producer'>{producer}</h2>
+      </div>
 
-      <h3><s>2100.00 zł</s></h3>
-      <h4>1899.00 zł</h4>
+      <div>
+        <h3 className='product_prize_before'>{priceBefore} zł</h3>
+        <h4 className='product_prize_after'>{price} zł</h4>
+      </div>
     </ProductInfoStyled>
   );
 };
 
 const ProductInfoStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 40%;
   height: 100%;
+  text-align: left;
+  padding: 5%;
 
   h1 {
-    margin-top: 12%;
     width: 100%;
-    text-align: center;
-    font-size: 2rem;
+    font-size: 30px;
   }
-  h2{
-    text-align: center;
-    padding-right: 28%;
+  h2 {
     width: 100%;
     font-weight: lighter;
+    font-size: 20px;
   }
-  h3{
-    margin-top: 15%;
+  h3 {
     width: 100%;
-    text-align: center;
-    color: #F28D94;
-    font-size: 1.5rem;
-    padding-right: 18%
+    color: #f28d94;
+    font-size: 25px;
   }
-  h4{
+
+  h4 {
     width: 100%;
-    text-align: center;
-    color: #8E94F2;
-    font-size: 3rem;
+    color: #8e94f2;
+    font-size: 55px;
+  }
+
+  .product_prize_before {
+    text-decoration: line-through;
+    font-weight: normal;
   }
 `;
 
