@@ -27,7 +27,7 @@ const ProductLogoStyled = styled.img`
 
 const ProductImageStyled = styled.img`
   width: 50%;
-  margin 2% auto 10% 30%;
+  margin: 2% auto 10% 30%;
   padding: 2%;
   display: flex;
   justify-content: center;
