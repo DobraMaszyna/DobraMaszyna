@@ -8,19 +8,7 @@ const Filter = () => {
     <FilterStyled>
       <h1>Filtruj</h1>
       <FilterSection color='red' title='Cena'></FilterSection>
-      {/* <PriceContainerStyled>
-        <PriceBoxStyled>
-          <span>Min</span>
-          <PriceStyled type="number" className='MinPrice' value="2500"/>
-        </PriceBoxStyled>
-        <SeparatorStyled>-</SeparatorStyled>
-        <PriceBoxStyled>
-          <span>Max</span>
-          <PriceStyled type="number" className='MaxPrice' value="7500"/>
-        </PriceBoxStyled> 
-      </PriceContainerStyled>
-      <ProgressStyled/> */}
-    <FilterProducents/>
+      <FilterProducents/>
     </FilterStyled>
   );
 };

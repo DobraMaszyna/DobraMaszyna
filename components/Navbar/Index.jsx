@@ -36,7 +36,7 @@ const NavbarStyled = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   height: 100px;
   padding: 0 2% 0 20%;
 `;

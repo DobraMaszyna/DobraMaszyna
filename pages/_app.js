@@ -5,8 +5,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   body{
     background-color: #F4F5F7;
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
     color: #353839;
   }
 

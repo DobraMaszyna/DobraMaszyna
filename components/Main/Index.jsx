@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import ProductList from '../ProductList/Index';
 
-const Main = () => {
+const Main = ({ products }) => {
   return (
     <MainStyled>
       <ContentContainer>
-        <ProductList />
+        <ProductList products={products} />
       </ContentContainer>
     </MainStyled>
   );

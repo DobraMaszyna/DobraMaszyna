@@ -10,12 +10,17 @@ import {
   faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 
-const Product = () => {
+const Product = ({ product, producer, image, price, priceBefore }) => {
   return (
     <ProductStyled>
       <div className='card'>
-        <ProductImages />
-        <ProductInfo />
+        <ProductImages image={image} />
+        <ProductInfo
+          product={product}
+          producer={producer}
+          price={price}
+          priceBefore={priceBefore}
+        />
       </div>
       <div className='userAction'>
       <NavItem
@@ -43,6 +48,7 @@ const ProductStyled = styled.li`
   align-items: center;
   width: 100%;
   height: 380px;
+  margin-bottom: 30px;
 
   .card {
     display: flex;
