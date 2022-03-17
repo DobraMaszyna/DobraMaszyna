@@ -12,6 +12,7 @@ const Filter = () => {
       <MaxPriceStyled type='number' value='2000' />
       <FilterSection color='blue' />
       <FilterProducers />
+      <FilterProducents />
     </FilterStyled>
   );
 };
@@ -26,8 +27,40 @@ const FilterStyled = styled.div`
   }
 `;
 
-const MinPriceStyled = styled.input``;
+const PriceContainerStyled = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 30px 0 35px;
+`;
 
-const MaxPriceStyled = styled.input``;
+const PriceBoxStyled = styled.div`
+  height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+const PriceStyled = styled.input`
+  width: 100%;
+  height: 100%;
+  outline: none;
+  margin-left: 12px;
+  text-align: center;
+  border: 1px solid #999;
+  border-radius: 5px;
+
+  &input[type="number"]::-webkit-outner-spin-button,
+  &input[type="number"]::-webkit-inner-spin-button,
+    -webkit-apperance: none;
+`;
+
+const SeparatorStyled = styled.div`
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+`;
+
+const ProgressStyled = styled.div``;
 
 export default Filter;

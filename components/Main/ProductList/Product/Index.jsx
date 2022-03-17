@@ -9,6 +9,13 @@ import {
 import ProductImages from './ProductImages';
 import ProductInfo from './ProductInfo';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCartShopping,
+  faCodeCompare,
+  faHeart,
+} from '@fortawesome/free-solid-svg-icons';
+
 import ProductActions from './ProductActions';
 
 const Product = ({ product, producer, image, price, priceBefore }) => {
