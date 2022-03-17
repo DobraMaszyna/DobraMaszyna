@@ -1,6 +1,15 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCodeCompare,
+  faCartShopping,
+  faHeart,
+} from '@fortawesome/free-solid-svg-icons';
+
 import ProductImages from './ProductImages';
 import ProductInfo from './ProductInfo';
+
+import ProductActions from './ProductActions';
 
 const Product = ({ product, producer, image, price, priceBefore }) => {
   return (
@@ -14,6 +23,7 @@ const Product = ({ product, producer, image, price, priceBefore }) => {
           priceBefore={priceBefore}
         />
       </div>
+      <ProductActions />
     </ProductStyled>
   );
 };
@@ -33,6 +43,12 @@ const ProductStyled = styled.li`
     box-shadow: 0px 4px 122px 8px rgba(0, 0, 0, 0.03);
     border-radius: 16px;
     overflow: hidden;
+  }
+
+  .ActionsContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
   }
 `;
 

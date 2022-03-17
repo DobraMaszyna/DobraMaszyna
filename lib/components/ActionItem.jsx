@@ -1,22 +1,22 @@
 import styled from 'styled-components';
 
-const NavItem = ({ title, icon, color }) => {
+const ActionItem = ({ title, icon, color }) => {
   return (
-    <NavItemStyled color={color}>
+    <ActionItemStyled color={color}>
       <p>
         <span>{icon}</span>
         {title}
       </p>
-    </NavItemStyled>
+    </ActionItemStyled>
   );
 };
 
-const NavItemStyled = styled.button`
+const ActionItemStyled = styled.button`
   height: 50px;
   margin: 25px;
   background-color: transparent;
   border: none;
-
+  text-align: left;
   p {
     font-size: 20px;
     font-weight: bold;
@@ -32,4 +32,4 @@ const NavItemStyled = styled.button`
   }
 `;
 
-export default NavItem;
+export default ActionItem;

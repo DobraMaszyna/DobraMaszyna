@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
-import NavItem from './NavItem';
+import ActionItem from '../../lib/components/ActionItem';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,17 +13,17 @@ const Navbar = () => {
   return (
     <NavbarStyled>
       <SearchBar />
-      <NavItem
+      <ActionItem
         title='Porównaj'
         icon={<FontAwesomeIcon size='xl' icon={faCodeCompare} />}
         color='blue'
       />
-      <NavItem
+      <ActionItem
         title='Koszyk'
         icon={<FontAwesomeIcon size='xl' icon={faCartShopping} />}
         color='purple'
       />
-      <NavItem
+      <ActionItem
         title='Polubione'
         icon={<FontAwesomeIcon size='xl' icon={faHeart} />}
         color='red'

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import FilterSection from './FilterSection';
+import FilterProducers from './FilterProducers';
 
 const Filter = () => {
   return (
@@ -9,6 +10,8 @@ const Filter = () => {
       <FilterSection color='red' title='Cena'></FilterSection>
       <MinPriceStyled type='number' value='1000' />
       <MaxPriceStyled type='number' value='2000' />
+      <FilterSection color='blue' />
+      <FilterProducers />
     </FilterStyled>
   );
 };

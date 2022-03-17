@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ProductList from '../ProductList/Index';
+import ProductList from './ProductList/Index';
 
 const Main = ({ products }) => {
   return (
