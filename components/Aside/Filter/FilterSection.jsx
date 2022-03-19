@@ -18,6 +18,7 @@ const FilterSectionStyled = styled.div`
         : props.color === 'blue'
         ? props.theme.colors.blue
         : props.theme.colors.red};
+    margin-bottom: 15px;
   }
 `;
 

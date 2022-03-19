@@ -1,12 +1,27 @@
 import styled from 'styled-components';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpWideShort, faGrip } from '@fortawesome/free-solid-svg-icons';
+
 import ProductList from './ProductList/Index';
+import SortBtn from './SortBtn';
 
 const Main = ({ products }) => {
   return (
     <MainStyled>
-      <ContentContainer>
+      <div className='ContentContainer card'>
+        <div className='SortContainer'>
+          <SortBtn
+            sortTypes={[
+              'Po popularności',
+              'Cena (Od najniższej)',
+              'Cena (Od najwyższej)',
+            ]}
+          />
+          <SortBtn sortTypes={[10, 20, 50]} />
+        </div>
         <ProductList products={products} />
-      </ContentContainer>
+      </div>
     </MainStyled>
   );
 };
@@ -15,14 +30,19 @@ const MainStyled = styled.div`
   float: right;
   width: 100%;
   height: 100%;
-`;
 
-const ContentContainer = styled.div`
-  width: 92%;
-  height: 100%;
-  margin-right: auto;
-  border-radius: 41px 41px 0 0;
-  background-color: #fff;
+  .ContentContainer {
+    width: 92%;
+    height: 100%;
+    margin: auto;
+    border-radius: 41px 41px 0 0;
+  }
+
+  .SortContainer {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+  }
 `;
 
 export default Main;

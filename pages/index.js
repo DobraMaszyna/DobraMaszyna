@@ -25,7 +25,11 @@ export default function Home({ productList }) {
 
 export const getServerSideProps = async (context) => {
   try {
-    const productList = await getProducts();
+    const productList = await getProducts(
+      { maxPrice: 10000, producers: ['JUKI', 'BERNINA AG'] },
+      null,
+      20
+    );
 
     return {
       props: { isConnected: true, productList },

@@ -1,18 +1,35 @@
 import styled from 'styled-components';
 
+import { useQuery } from 'react-query';
+import { useState } from 'react';
+
 import FilterSection from './FilterSection';
 import FilterProducers from './FilterProducers';
+import SubmitFilters from './SubmitFilters';
 
 const Filter = () => {
+  const [producers, setProducers] = useState([]);
+  const [maxPrice, setMaxPrice] = useState(null);
+  const [minPrice, setMinPrice] = useState(null);
+
+  const submitFiltersHandler = () => {};
+
+  const producerHandler = (producer, isChecked) => {
+    if (isChecked) {
+      setProducers((prev) => [...prev, producer]);
+    } else {
+      setProducers(producers.filter((title) => title !== producer));
+    }
+  };
+
   return (
     <FilterStyled>
       <h1>Filtruj</h1>
-      <FilterSection color='red' title='Cena'></FilterSection>
-      <MinPriceStyled type='number' value='1000' />
-      <MaxPriceStyled type='number' value='2000' />
-      <FilterSection color='blue' />
-      <FilterProducers />
-      <FilterProducents />
+      <FilterSection color='red' title='Cena' />
+      <FilterSection color='purple' title='Producentci'>
+        <FilterProducers addProducer={producerHandler} />
+      </FilterSection>
+      <SubmitFilters submit={submitFiltersHandler} />
     </FilterStyled>
   );
 };
@@ -26,41 +43,5 @@ const FilterStyled = styled.div`
     font-weight: bold;
   }
 `;
-
-const PriceContainerStyled = styled.div`
-  display: flex;
-  width: 100%;
-  margin: 30px 0 35px;
-`;
-
-const PriceBoxStyled = styled.div`
-  height: 45px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-`;
-
-const PriceStyled = styled.input`
-  width: 100%;
-  height: 100%;
-  outline: none;
-  margin-left: 12px;
-  text-align: center;
-  border: 1px solid #999;
-  border-radius: 5px;
-
-  &input[type="number"]::-webkit-outner-spin-button,
-  &input[type="number"]::-webkit-inner-spin-button,
-    -webkit-apperance: none;
-`;
-
-const SeparatorStyled = styled.div`
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-items: center;
-`;
-
-const ProgressStyled = styled.div``;
 
 export default Filter;

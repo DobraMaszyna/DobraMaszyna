@@ -21,7 +21,7 @@ const ProductList = ({ products }) => {
 const ProductListStyled = styled.ul`
   width: 100%;
   height: 100%;
-  padding: 80px 100px;
+  padding: 0px 100px;
   box-sizing: border-box;
 `;
 

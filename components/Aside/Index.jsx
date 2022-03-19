@@ -5,18 +5,26 @@ import Filter from './Filter/Index';
 const Aside = () => {
   return (
     <AsideStyled>
-      <Filter />
+      <div className='AsideCard card'>
+        <Filter />
+      </div>
     </AsideStyled>
   );
 };
 
 const AsideStyled = styled.div`
   float: left;
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  height: 100%;
-  padding: 40px 50px;
+  width: 410px;
+  min-height: 100vh;
+
+  .AsideCard {
+    width: 319px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+    border-radius: 0 41px;
+  }
 `;
 
 export default Aside;

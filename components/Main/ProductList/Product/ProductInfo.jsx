@@ -9,7 +9,9 @@ const ProductInfo = ({ product, producer, price, priceBefore }) => {
       </div>
 
       <div>
-        <h3 className='product_prize_before'>{priceBefore} zł</h3>
+        {price !== priceBefore && (
+          <h3 className='product_prize_before'>{priceBefore} zł</h3>
+        )}
         <h4 className='product_prize_after'>{price} zł</h4>
       </div>
     </ProductInfoStyled>
