@@ -16,18 +16,16 @@ const SortBtnStyled = styled.select`
   margin: 50px 15px;
   position: relative;
   font-weight: 600;
-  height: 60px;
-  padding: 15px 10px;
-  border: 3px solid #9a9c9d;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid ${(props) => props.theme.colors.gray};
   color: #9a9c9d;
-  border-radius: 6px;
-  background-color: ${(props) => props.theme.colors.gray};
 
   option {
     font-size: 16px;
     color: black;
     padding: 5px;
-    background-color: ;
+    background-color: transparent;
   }
 
   h1 {

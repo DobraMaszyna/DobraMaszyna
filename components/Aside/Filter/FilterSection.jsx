@@ -12,12 +12,6 @@ const FilterSection = ({ title, children, color }) => {
 const FilterSectionStyled = styled.div`
   .title {
     font-size: 16px;
-    color: ${(props) =>
-      props.color === 'purple'
-        ? props.theme.colors.purple
-        : props.color === 'blue'
-        ? props.theme.colors.blue
-        : props.theme.colors.red};
     margin-bottom: 15px;
   }
 `;

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import FilterSection from './FilterSection';
 import FilterProducers from './FilterProducers';
 import SubmitFilters from './SubmitFilters';
+import FilterPrice from './FilterPrice';
 
 const Filter = () => {
   const [producers, setProducers] = useState([]);
@@ -25,8 +26,11 @@ const Filter = () => {
   return (
     <FilterStyled>
       <h1>Filtruj</h1>
-      <FilterSection color='red' title='Cena' />
-      <FilterSection color='purple' title='Producentci'>
+
+      <FilterSection title='Cena'>
+        <FilterPrice />
+      </FilterSection>
+      <FilterSection title='Producentci'>
         <FilterProducers addProducer={producerHandler} />
       </FilterSection>
       <SubmitFilters submit={submitFiltersHandler} />
@@ -41,6 +45,7 @@ const FilterStyled = styled.div`
   h1 {
     font-size: 35px;
     font-weight: bold;
+    margin-bottom: 20px;
   }
 `;
 

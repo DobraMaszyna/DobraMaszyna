@@ -26,7 +26,7 @@ export default function Home({ productList }) {
 export const getServerSideProps = async (context) => {
   try {
     const productList = await getProducts(
-      { maxPrice: 10000, producers: ['JUKI', 'BERNINA AG'] },
+      { maxPrice: 10000, producers: ['BERNINA AG'] },
       null,
       20
     );
@@ -47,4 +47,6 @@ const AppContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  padding-top: 150px;
+  z-index: 100;
 `;

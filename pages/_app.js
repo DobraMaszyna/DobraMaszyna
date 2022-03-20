@@ -23,13 +23,11 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    bgGray: '#F4F5F7',
+    gray: '#C5C5C5',
     onyx: '#353839',
     blue: '#8DD7F2',
-    purple: '#8E94F2',
-    red: '#F28D94',
-    btnGray: '#353839',
-    orange: '#FFAE69',
+    purplePrimary: '#8E94F2',
+    purpleLighter: '#C6C9F8',
   },
 };
 
