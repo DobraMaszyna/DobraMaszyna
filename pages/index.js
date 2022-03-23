@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useQuery } from 'react-query';
 
 import Head from 'next/head';
 
@@ -27,7 +28,6 @@ export const getServerSideProps = async (context) => {
   try {
     const productList = await getProducts(
       { maxPrice: 10000, producers: ['BERNINA AG'] },
-      null,
       20
     );
 
@@ -35,8 +35,8 @@ export const getServerSideProps = async (context) => {
       props: { isConnected: true, productList },
     };
   } catch (e) {
+    console.log('test');
     console.error(e);
-
     return {
       props: { isConnected: false },
     };

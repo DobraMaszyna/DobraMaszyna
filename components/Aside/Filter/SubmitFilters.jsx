@@ -15,7 +15,7 @@ const SubmitFiltersStyled = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border 1px solid ${(props) => props.theme.colors.onyx};
+  border 2px solid ${(props) => props.theme.colors.purplePrimary};
   border-radius: 8px;
   font-size: 16px;
   padding: 10px 15px;

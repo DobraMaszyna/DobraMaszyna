@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import ActionBtn from './ActionBtn';
@@ -5,7 +6,12 @@ import ProductInfo from './ProductInfo';
 
 const Product = ({ product, producer, image, price, priceBefore }) => {
   return (
-    <ProductStyled>
+    <ProductStyled
+      whileHover={{
+        boxShadow: '0px 4px 18px 8px rgba(142, 148, 242, 0.1)',
+        padding: '0 2%',
+        borderRadius: '20px',
+      }}>
       <ProductInfo
         product={product}
         producer={producer}
@@ -41,7 +47,7 @@ const Product = ({ product, producer, image, price, priceBefore }) => {
   );
 };
 
-const ProductStyled = styled.li`
+const ProductStyled = styled(motion.li)`
   display: flex;
   align-items: center;
   width: 100%;

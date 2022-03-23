@@ -1,16 +1,20 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const NavIcon = ({ imgSrc }) => {
   return (
-    <NavIconsStyled>
+    <NavIconsStyled whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <img src={imgSrc} alt='' />
     </NavIconsStyled>
   );
 };
 
-const NavIconsStyled = styled.li`
+const NavIconsStyled = styled(motion.li)`
   img {
     width: 32px;
+  }
+
+  img:hover {
   }
 `;
 
