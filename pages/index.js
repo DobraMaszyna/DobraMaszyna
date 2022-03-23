@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar/Index';
 import Aside from '../components/Aside/Index';
 import Main from '../components/Main/Index';
 import getProducts from '../lib/api/getProductList';
+import CategoryList from '../components/CategoryList/Index';
 
 export default function Home({ productList }) {
   return (
@@ -16,6 +17,8 @@ export default function Home({ productList }) {
       </Head>
 
       <Navbar />
+      <CategoryList/>
+      
       <AppContainer>
         <Aside />
         <Main products={productList} />
