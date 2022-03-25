@@ -1,6 +1,11 @@
-import './_app.css';
-
+import Head from 'next/head';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
+import Navbar from '../components/Navbar/Index';
+import CategoryList from '../components/CategoryList/Index';
+
+import './_app.css';
+import styled from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -36,8 +41,25 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Head>
+          <title>Dobra Maszyna</title>
+        </Head>
+
+        <Navbar />
+        <CategoryList />
+
+        <AppContainer>
+          <Component {...pageProps} />
+        </AppContainer>
       </ThemeProvider>
     </>
   );
 }
+
+const AppContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  z-index: 100;
+`;

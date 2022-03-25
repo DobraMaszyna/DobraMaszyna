@@ -12,12 +12,12 @@ const FilterPrice = () => {
 
 const FilterPriceStyled = styled.div`
   display: flex;
-  margin-top -15px;
+  margin-top: -15px;
   padding: 20px 10px;
 
   input {
     width: 40%;
-    border 1px solid ${(props) => props.theme.colors.onyx};
+    border: 1px solid ${(props) => props.theme.colors.onyx};
     border-radius: 6px;
     text-align: center;
     padding: 10px;

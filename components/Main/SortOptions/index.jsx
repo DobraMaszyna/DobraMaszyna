@@ -10,6 +10,9 @@ const SortOptions = () => {
           'Po popularności',
           'Cena (Od najniższej)',
           'Cena (Od najwyższej)',
+          'Według rabatu',
+          'Według wagi maszyny',
+          'Najczęściej najlepiej sprzedane',
         ]}
       />
       <SortBtn sortTypes={[10, 20, 50]} />
