@@ -1,44 +1,44 @@
-import styled from 'styled-components';
-import CategoryElement from './CategoryElement';
+import styled from "styled-components";
+import CategoryElement from "./CategoryElement";
 
 const CategoryList = () => {
   return (
     <CategoryListStyled>
       <ul>
         <CategoryElement
-          imgSrc='https://img.icons8.com/dotty/80/7E7E80/cottage.png'
-          title='Maszyny Domowe'
-          href='maszyny-domowe'
+          imgSrc="https://img.icons8.com/dotty/80/7E7E80/cottage.png"
+          title="Maszyny Domowe"
+          href="maszyny-domowe"
         />
         <CategoryElement
-          imgSrc='https://img.icons8.com/dotty/80/7E7E80/factory.png'
-          title='Maczyny Przemysłowe'
-          href='maszyny-przemyslowe'
+          imgSrc="https://img.icons8.com/dotty/80/7E7E80/factory.png"
+          title="Maczyny Przemysłowe"
+          href="maszyny-przemyslowe"
         />
         <CategoryElement
-          imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-machine.png'
-          title='Hafciarki'
-          href='hafciarki'
+          imgSrc="https://img.icons8.com/dotty/80/7E7E80/sewing-machine.png"
+          title="Hafciarki"
+          href="hafciarki"
         />
         <CategoryElement
-          imgSrc='https://img.icons8.com/dotty/80/7E7E80/ironing.png'
-          title='Prasowanie'
-          href='prasowanie'
+          imgSrc="https://img.icons8.com/dotty/80/7E7E80/ironing.png"
+          title="Prasowanie"
+          href="prasowanie"
         />
         <CategoryElement
-          imgSrc='https://img.icons8.com/dotty/80/7E7E80/pin-cushion.png'
-          title='Akcesoria'
-          href='akcesoria'
+          imgSrc="https://img.icons8.com/dotty/80/7E7E80/pin-cushion.png"
+          title="Akcesoria"
+          href="akcesoria"
         />
         <CategoryElement
-          imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-button.png'
-          title='Części Zamienne'
-          href='czesci-zamienne'
+          imgSrc="https://img.icons8.com/dotty/80/7E7E80/sewing-button.png"
+          title="Części Zamienne"
+          href="czesci-zamienne"
         />
         <CategoryElement
-          imgSrc='https://img.icons8.com/dotty/80/7E7E80/discount.png'
-          title='Promocje'
-          href='promocje'
+          imgSrc="https://img.icons8.com/dotty/80/7E7E80/discount.png"
+          title="Promocje"
+          href="promocje"
         />
       </ul>
     </CategoryListStyled>
@@ -57,6 +57,29 @@ const CategoryListStyled = styled.div`
     justify-content: space-around;
     width: 100%;
     padding: 0 50px;
+  }
+
+  li:nth-child(1) div {
+    background-color: red;
+  }
+
+  li:nth-child(2) div {
+    background-color: blue;
+  }
+  li:nth-child(3) div {
+    background-color: blue;
+  }
+  li:nth-child(4) div {
+    background-color: blue;
+  }
+  li:nth-child(5) div {
+    background-color: blue;
+  }
+  li:nth-child(6) div {
+    background-color: blue;
+  }
+  li:nth-child(7) div {
+    background-color: blue;
   }
 `;
 
