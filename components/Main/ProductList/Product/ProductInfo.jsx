@@ -1,12 +1,22 @@
-import styled from 'styled-components';
+import Link from "next/Link";
+
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const ProductInfo = ({ product, producer, image }) => {
   return (
     <ProductInfoStyled>
-      <img src={image} alt='' />
-      <div className='defaultInfo'>
-        <h1 className='product_model'>{product}</h1>
-        <h2 className='product_producer'>{producer}</h2>
+      <img src={image} alt="" />
+      <div className="defaultInfo">
+        <Link href="product">
+          <motion.a
+            whileHover={{ textDecoration: "underline" }}
+            className="product_model"
+          >
+            {product}
+          </motion.a>
+        </Link>
+        <h2 className="product_producer">{producer}</h2>
       </div>
     </ProductInfoStyled>
   );
@@ -28,10 +38,13 @@ const ProductInfoStyled = styled.div`
     margin-top: 20%;
     margin-left: 2%;
 
-    h1 {
+    a {
+      font-weight: bold;
       width: 100%;
       font-size: 25px;
+      cursor: pointer;
     }
+
     h2 {
       width: 100%;
       font-weight: lighter;

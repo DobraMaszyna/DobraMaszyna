@@ -1,17 +1,12 @@
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
-import ActionBtn from './ActionBtn';
-import ProductInfo from './ProductInfo';
+import ActionBtn from "./ActionBtn";
+import ProductInfo from "./ProductInfo";
 
 const Product = ({ product, producer, image, price, priceBefore }) => {
   return (
-    <ProductStyled
-      whileHover={{
-        boxShadow: '0px 4px 18px 8px rgba(142, 148, 242, 0.1)',
-        padding: '0 2%',
-        borderRadius: '20px',
-      }}>
+    <ProductStyled>
       <ProductInfo
         product={product}
         producer={producer}
@@ -19,27 +14,27 @@ const Product = ({ product, producer, image, price, priceBefore }) => {
         priceBefore={priceBefore}
         image={image}
       />
-      <div className='RightSide'>
-        <div className='ActionBtnsContainer'>
+      <div className="RightSide">
+        <div className="ActionBtnsContainer">
           <ActionBtn
-            title='Do koszyka'
-            btnClass='purple'
-            icon='https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png'
+            title="Do koszyka"
+            btnClass="purple"
+            icon="https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png"
           />
           <ActionBtn
-            title='Do koszyka'
-            btnClass='silver'
-            icon='https://img.icons8.com/ios/50/000000/like--v1.png'
+            title="Do koszyka"
+            btnClass="silver"
+            icon="https://img.icons8.com/ios/50/000000/like--v1.png"
           />
         </div>
-        <div className='PriceContainer'>
+        <div className="PriceContainer">
           <p>
             {priceBefore}
-            {priceBefore % 1 === 0 && '.00'} zł
+            {priceBefore % 1 === 0 && ".00"} zł
           </p>
           <h1>
             {price}
-            {price % 1 === 0 && '.00'} zł
+            {price % 1 === 0 && ".00"} zł
           </h1>
         </div>
       </div>
@@ -47,7 +42,7 @@ const Product = ({ product, producer, image, price, priceBefore }) => {
   );
 };
 
-const ProductStyled = styled(motion.li)`
+const ProductStyled = styled.li`
   display: flex;
   align-items: center;
   width: 100%;

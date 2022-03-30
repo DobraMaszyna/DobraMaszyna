@@ -1,11 +1,11 @@
-import Head from 'next/head';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Head from "next/head";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
-import Navbar from '../components/Navbar/Index';
-import CategoryList from '../components/CategoryList/Index';
+import Navbar from "../components/Navbar/Index";
+import CategoryList from "../components/CategoryList/Index";
 
-import './_app.css';
-import styled from 'styled-components';
+import "./_app.css";
+import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -28,11 +28,11 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    gray: '#C5C5C5',
-    onyx: '#353839',
-    blue: '#8DD7F2',
-    purplePrimary: '#8E94F2',
-    purpleLighter: '#C6C9F8',
+    gray: "#C5C5C5",
+    onyx: "#353839",
+    blue: "#8DD7F2",
+    purplePrimary: "#8E94F2",
+    purpleLighter: "#C6C9F8",
   },
 };
 
@@ -60,6 +60,6 @@ const AppContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  padding-top: 100px;
+  padding-top: 180px;
   z-index: 100;
 `;
