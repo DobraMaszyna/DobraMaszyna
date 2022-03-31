@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const Delivery = ({ title }) => {
+const Delivery = ({ title, icon }) => {
   return (
     <DelveriyStyled>
-      <img src="" />
+      <img src={icon} />
       <p>{title}</p>
     </DelveriyStyled>
   );

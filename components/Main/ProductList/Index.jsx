@@ -12,6 +12,7 @@ const ProductList = ({ products }) => {
           image={product.image}
           price={product.price}
           priceBefore={product.priceBefore}
+          pid={product._id}
         />
       ))}
     </ProductListStyled>

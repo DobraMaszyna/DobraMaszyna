@@ -5,7 +5,7 @@ import ActionBtn from "../../../../lib/components/ActionBtn";
 import ProductInfo from "./ProductInfo";
 import Price from "../../../../lib/components/Price";
 
-const Product = ({ product, producer, image, price, priceBefore }) => {
+const Product = ({ product, producer, image, price, priceBefore, pid }) => {
   return (
     <ProductStyled>
       <ProductInfo
@@ -14,6 +14,7 @@ const Product = ({ product, producer, image, price, priceBefore }) => {
         price={price}
         priceBefore={priceBefore}
         image={image}
+        pid={pid}
       />
       <div className="RightSide">
         <div className="ActionBtnsContainer">

@@ -3,12 +3,12 @@ import Link from "next/Link";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const ProductInfo = ({ product, producer, image }) => {
+const ProductInfo = ({ product, producer, image, pid }) => {
   return (
     <ProductInfoStyled>
       <img src="/img/test.jpg" alt="" />
       <div className="defaultInfo">
-        <Link href="produkt/test">
+        <Link href={`produkt/${pid}}`}>
           <motion.a
             whileHover={{ textDecoration: "underline" }}
             className="product_model"

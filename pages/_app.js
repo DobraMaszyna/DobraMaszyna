@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
   .card {
     background-color: #fff;
     box-shadow: 0px 4px 37px rgba(198, 201, 248, 0.33);
+    border-radius: 41px;
   }
 `;
 

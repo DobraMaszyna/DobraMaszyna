@@ -12,7 +12,7 @@ const CategoryPage = ({ productList }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async () => {
   try {
     const productList = await getProducts(
       "products",
