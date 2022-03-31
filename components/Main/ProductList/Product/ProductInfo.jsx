@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 const ProductInfo = ({ product, producer, image }) => {
   return (
     <ProductInfoStyled>
-      <img src={image} alt="" />
+      <img src="/img/test.jpg" alt="" />
       <div className="defaultInfo">
-        <Link href="product">
+        <Link href="produkt/test">
           <motion.a
             whileHover={{ textDecoration: "underline" }}
             className="product_model"

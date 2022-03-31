@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Product from './Product/Index';
+import Product from "./Product/Index";
 
 const ProductList = ({ products }) => {
   return (
     <ProductListStyled>
       {products.map((product) => (
         <Product
-          product={product.product}
+          product={product.name}
           producer={product.producer}
           image={product.image}
           price={product.price}

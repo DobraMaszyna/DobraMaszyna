@@ -1,18 +1,25 @@
-import styledComponents from "styled-components";
+import styled from "styled-components";
+
+import Price from "../../../../lib/components/price";
+import Availability from "../../../../lib/components/Availability";
+import Delivery from "./Delivery";
+import ActionBtn from "../../../../lib/components/ActionBtn";
 
 const RightSideInfo = () => {
   return (
     <PaymentStyled className="card">
-      <p></p>
+      <Price />
+      <Availability />
+      <ul>
+        <Delivery />
+        <Delivery />
+      </ul>
+      <ActionBtn title="" />
+      <ActionBtn title="" />
     </PaymentStyled>
   );
 };
 
 const PaymentStyled = styled.div``;
-
-const ActionBtn = styled.button`
-  width: 30%;
-  background-color: black;
-`;
 
 export default RightSideInfo;

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-import ActionBtn from "./ActionBtn";
+import ActionBtn from "../../../../lib/components/ActionBtn";
 import ProductInfo from "./ProductInfo";
+import Price from "../../../../lib/components/Price";
 
 const Product = ({ product, producer, image, price, priceBefore }) => {
   return (
@@ -27,16 +28,7 @@ const Product = ({ product, producer, image, price, priceBefore }) => {
             icon="https://img.icons8.com/ios/50/000000/like--v1.png"
           />
         </div>
-        <div className="PriceContainer">
-          <p>
-            {priceBefore}
-            {priceBefore % 1 === 0 && ".00"} zł
-          </p>
-          <h1>
-            {price}
-            {price % 1 === 0 && ".00"} zł
-          </h1>
-        </div>
+        <Price price={price} pricebefore={priceBefore} />
       </div>
     </ProductStyled>
   );
