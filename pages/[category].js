@@ -1,7 +1,7 @@
-import Aside from "../components/Aside/Index";
-import Main from "../components/Main/Index";
+import Aside from '../components/Aside/Index';
+import Main from '../components/Main/Index';
 
-import getProducts from "../lib/api/getProductList";
+import getProducts from '../lib/api/getProductList';
 
 const CategoryPage = ({ productList }) => {
   return (
@@ -12,19 +12,15 @@ const CategoryPage = ({ productList }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
   try {
-    const productList = await getProducts(
-      "products",
-      { maxPrice: 10000, producers: ["BERNINA AG"] },
-      20
-    );
+    const productList = await getProducts(context.query.category, null, 20);
 
     return {
       props: { isConnected: true, productList },
     };
   } catch (e) {
-    console.log("test");
+    console.log('test');
     console.error(e);
     return {
       props: { isConnected: false },

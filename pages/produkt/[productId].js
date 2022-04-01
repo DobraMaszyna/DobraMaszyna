@@ -1,17 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import LeftSideInfo from "../../components/Main/ProductDetails/LeftSideInfo/Index";
-import RightSideInfo from "../../components/Main/ProductDetails/RightSideInfo/Index";
+import LeftSideInfo from '../../components/Main/ProductDetails/LeftSideInfo/Index';
+import RightSideInfo from '../../components/Main/ProductDetails/RightSideInfo/Index';
 
-import clientPromise from "../../lib/mongodb";
-import { ObjectId } from "mongodb";
+import getProductInfo from '../../lib/api/getProductInfo';
 
-const ProductPage = ({ data }) => {
-  console.log(data);
+const ProductPage = ({ productInfo }) => {
   return (
     <ProductViewStyled>
-      <LeftSideInfo />
-      <RightSideInfo price={100} priceBefore={100} />
+      <LeftSideInfo
+        productName={productInfo.name}
+        producer={productInfo.producer}
+      />
+      <RightSideInfo
+        price={productInfo.price}
+        priceBefore={productInfo.priceBefore}
+      />
     </ProductViewStyled>
   );
 };
@@ -20,27 +24,18 @@ const ProductViewStyled = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+
+  .name {
+    position: absolute;
+  }
 `;
 
 export const getServerSideProps = async (context) => {
-  console.log(context.query.productId);
-  try {
-    const client = await clientPromise;
-    const db = await client.db("bmd_db");
+  const productInfo = await getProductInfo(context.query.productId);
 
-    const data = await db
-      .collection("products")
-      .find({ _id: ObjectId(context.query.objectId) })
-      .toArray();
-
-    return {
-      props: { data: JSON.parse(JSON.stringify(data)) },
-    };
-  } catch {
-    return {
-      props: {},
-    };
-  }
+  return {
+    props: { productInfo },
+  };
 };
 
 export default ProductPage;

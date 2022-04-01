@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const ActionBtn = ({ btnClass, title, icon }) => {
+const ActionBtn = ({ btnClass, title, icon, style }) => {
   return (
     <ActionBtnStyled
+      style={style}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       className={btnClass}>
@@ -17,8 +18,7 @@ const ActionBtnStyled = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
-  float: right;
+  width: 60%;
   padding: 12px 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
