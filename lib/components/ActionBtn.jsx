@@ -1,14 +1,15 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const ActionBtn = ({ btnClass, title, icon }) => {
   return (
     <ActionBtnStyled
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className={btnClass}>
+      className={btnClass}
+    >
       {title}
-      <img src={icon} className='icon' />
+      <img src={icon} className="icon" />
     </ActionBtnStyled>
   );
 };
@@ -17,14 +18,13 @@ const ActionBtnStyled = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
-  float: right;
+  width: 60%;
   padding: 12px 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   font-size: 16px;
   border: none;
-  margin: 5px 0;
+  margin: 5px auto;
   font-weight: 600;
 
   .icon {
