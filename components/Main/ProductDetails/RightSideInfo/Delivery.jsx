@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Delivery = ({ title, icon }) => {
   return (
     <DelveriyStyled>
-      <img src={icon} />
+      <img class='icon' src={icon} />
+
       <p>{title}</p>
     </DelveriyStyled>
   );
@@ -11,16 +12,23 @@ const Delivery = ({ title, icon }) => {
 
 const DelveriyStyled = styled.li`
   display: flex;
-  justify-content: space-evenly;
   border-top: 0.5px solid ${(props) => props.theme.colors.gray};
-  padding: 10px;
+  align-items: center;
+  padding: 7px 10%;
+  justify-content: space-between;
+  text-align: left;
 
-  img {
-    width: 40px;
+  .imageContainer {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    img {
+      margin: auto;
+    }
   }
 
   p {
-    font-size: 20px;
+    font-size: 12px;
   }
 `;
 

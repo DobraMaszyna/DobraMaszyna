@@ -1,9 +1,8 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import ActionBtn from "../../../../lib/components/ActionBtn";
-import ProductInfo from "./ProductInfo";
-import Price from "../../../../lib/components/Price";
+import ActionBtn from '../../../../lib/components/ActionBtn';
+import ProductInfo from './ProductInfo';
+import Price from '../../../../lib/components/Price';
 
 const Product = ({ product, producer, image, price, priceBefore, pid }) => {
   return (
@@ -16,20 +15,22 @@ const Product = ({ product, producer, image, price, priceBefore, pid }) => {
         image={image}
         pid={pid}
       />
-      <div className="RightSide">
-        <div className="ActionBtnsContainer">
+      <div className='RightSide'>
+        <div className='ActionBtnsContainer'>
           <ActionBtn
-            title="Do koszyka"
-            btnClass="purple"
-            icon="https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png"
+            style={{ float: 'right' }}
+            title='Do koszyka'
+            btnClass='purple'
+            icon='https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png'
           />
           <ActionBtn
-            title="Do koszyka"
-            btnClass="silver"
-            icon="https://img.icons8.com/ios/50/000000/like--v1.png"
+            style={{ float: 'right' }}
+            title='Do koszyka'
+            btnClass='silver'
+            icon='https://img.icons8.com/ios/50/000000/like--v1.png'
           />
         </div>
-        <Price price={price} pricebefore={priceBefore} />
+        <Price price={price} priceBefore={priceBefore} />
       </div>
     </ProductStyled>
   );
@@ -47,7 +48,7 @@ const ProductStyled = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 25%;
+    width: 40%;
     height: 100%;
     padding: 25px 0;
     text-align: right;
