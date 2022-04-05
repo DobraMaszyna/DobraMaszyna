@@ -29,7 +29,7 @@ const ProductInfoStyled = styled.div`
   text-align: left;
 
   img {
-    width: 40%;
+    width: 250px;
   }
 
   .defaultInfo {

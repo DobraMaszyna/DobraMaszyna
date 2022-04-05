@@ -17,10 +17,11 @@ const SearchbarStyled = styled.div`
   align-items: center;
   position: absolute;
   left: 50%;
+  width: 30%;
   transform: translateX(-50%);
 
   input {
-    width: 600px;
+    width: 100%;
     padding: 10px;
     border: 1px solid #c5c5c5;
     border-radius: 66px 0 0 66px;

@@ -42,6 +42,7 @@ const NavbarStyled = styled.nav`
   align-items: center;
   flex-direction: row;
   width: 100%;
+  max-width: 100vw;
   height: ${(props) => (props.defaultNavState ? '75px' : '58px')};
   padding: 0 2% 0 20%;
   margin-bottom: 70px;

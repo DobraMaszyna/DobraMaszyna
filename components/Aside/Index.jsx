@@ -13,6 +13,7 @@ const Aside = () => {
 };
 
 const AsideStyled = styled.div`
+  display: none;
   float: left;
   width: 410px;
   min-height: 100vh;
@@ -24,6 +25,10 @@ const AsideStyled = styled.div`
     flex-direction: column;
     padding: 40px 50px;
     border-radius: 0 41px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    display: initial;
   }
 `;
 

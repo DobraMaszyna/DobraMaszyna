@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
+import { Provider } from 'react-redux';
+import store from '../redux/store';
+
 import Navbar from '../components/Navbar/Index';
 import CategoryList from '../components/CategoryList/Index';
 
@@ -43,7 +46,7 @@ const theme = {
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Head>
@@ -57,7 +60,7 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </AppContainer>
       </ThemeProvider>
-    </>
+    </Provider>
   );
 }
 
@@ -65,6 +68,6 @@ const AppContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  padding-top: 180px;
+  padding-top: 80px;
   z-index: 100;
 `;

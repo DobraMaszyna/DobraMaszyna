@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const ActionBtn = ({ btnClass, title, icon, style }) => {
+const ActionBtn = ({ onClick, btnClass, title, icon, style }) => {
   return (
     <ActionBtnStyled
+      onClick={onClick}
       style={style}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}

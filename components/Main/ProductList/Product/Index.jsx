@@ -1,23 +1,30 @@
 import styled from 'styled-components';
 
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { addProduct } from '../../../../redux/cart';
+
 import ActionBtn from '../../../../lib/components/ActionBtn';
 import ProductInfo from './ProductInfo';
 import Price from '../../../../lib/components/Price';
 
-const Product = ({ product, producer, image, price, priceBefore, pid }) => {
+const Product = ({ product }) => {
+  const dispatch = useDispatch();
+
   return (
     <ProductStyled>
       <ProductInfo
-        product={product}
-        producer={producer}
-        price={price}
-        priceBefore={priceBefore}
-        image={image}
-        pid={pid}
+        product={product.name}
+        producer={product.producer}
+        price={product.price}
+        priceBefore={product.priceBefore}
+        image={product.image}
+        pid={product._id}
       />
       <div className='RightSide'>
         <div className='ActionBtnsContainer'>
           <ActionBtn
+            onClick={() => dispatch(addProduct(product))}
             style={{ float: 'right' }}
             title='Do koszyka'
             btnClass='purple'
@@ -25,12 +32,12 @@ const Product = ({ product, producer, image, price, priceBefore, pid }) => {
           />
           <ActionBtn
             style={{ float: 'right' }}
-            title='Do koszyka'
+            title='Polub'
             btnClass='silver'
             icon='https://img.icons8.com/ios/50/000000/like--v1.png'
           />
         </div>
-        <Price price={price} priceBefore={priceBefore} />
+        <Price price={product.price} priceBefore={product.priceBefore} />
       </div>
     </ProductStyled>
   );
@@ -52,21 +59,6 @@ const ProductStyled = styled.li`
     height: 100%;
     padding: 25px 0;
     text-align: right;
-
-    .PriceContainer {
-      margin-top: auto;
-
-      p {
-        font-size: 20px;
-        color: ${(props) => props.theme.colors.purpleLighter};
-        text-decoration: line-through;
-      }
-
-      h1 {
-        font-size: 50px;
-        color: ${(props) => props.theme.colors.purplePrimary};
-      }
-    }
   }
 `;
 
