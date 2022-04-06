@@ -12,9 +12,9 @@ const InfoSide = ({
     <InfoSideStyled>
       <h1 className='productName'>{productName}</h1>
       <p className='productProducer'>{producer}</p>
-      <p className='footers'>{productFooters}</p>
-      <p className='type'>{productType}</p>
-      <p className='power'>{productPower}</p>
+      <p className='footers'>Ilość stopek w zestawie: {productFooters}</p>
+      <p className='type'>Rodzaj maszyny{productType}</p>
+      <p className='power'>Pobór mocy: {productPower}w</p>
       <h3>Warianty</h3>
       <ul>
         <CustomButton BtnImg={'/img/test.jpg'} />

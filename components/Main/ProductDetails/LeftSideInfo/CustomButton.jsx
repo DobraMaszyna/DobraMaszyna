@@ -1,14 +1,15 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const CustomButton = ({ BtnImg }) => {
   return (
-    <CustomButtonStyled>
+    <CustomButtonStyled whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <img className='customBtn' src={BtnImg} />
     </CustomButtonStyled>
   );
 };
 
-const CustomButtonStyled = styled.li`
+const CustomButtonStyled = styled(motion.li)`
   height: 50px;
   width: 100px;
   border-radius: 5px;

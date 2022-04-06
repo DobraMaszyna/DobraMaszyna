@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 import styled from 'styled-components';
 
@@ -29,7 +30,11 @@ const Navbar = () => {
 
       <ul>
         <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/scales.png' />
-        <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/shopping-cart.png' />
+        <Link href='/cart'>
+          <a>
+            <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/shopping-cart.png' />
+          </a>
+        </Link>
         <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/like.png' />
       </ul>
     </NavbarStyled>
