@@ -1,23 +1,24 @@
-import Link from 'next/Link';
-
 import styled from 'styled-components';
+
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const ProductInfo = ({ product, producer, image, pid }) => {
   return (
-    <ProductInfoStyled>
-      <img src='/img/test.jpg' alt='' />
-      <div className='defaultInfo'>
-        <Link href={`produkt/${pid}`}>
-          <motion.a
+    <Link href={`produkt/${pid}`}>
+      <ProductInfoStyled>
+        <img src='/img/test.jpg' alt='' />
+        <div className='defaultInfo'>
+          <motion.p
             whileHover={{ textDecoration: 'underline' }}
             className='product_model'>
             {product}
-          </motion.a>
-        </Link>
-        <h2 className='product_producer'>{producer}</h2>
-      </div>
-    </ProductInfoStyled>
+          </motion.p>
+
+          <h2 className='product_producer'>{producer}</h2>
+        </div>
+      </ProductInfoStyled>
+    </Link>
   );
 };
 
@@ -27,6 +28,7 @@ const ProductInfoStyled = styled.div`
   width: 80%;
   height: 100%;
   text-align: left;
+  cursor: pointer;
 
   img {
     width: 250px;
@@ -37,11 +39,10 @@ const ProductInfoStyled = styled.div`
     margin-top: 20%;
     margin-left: 2%;
 
-    a {
+    p {
       font-weight: bold;
       width: 100%;
       font-size: 25px;
-      cursor: pointer;
     }
 
     h2 {

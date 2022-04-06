@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { addProduct } from '../../../../redux/cart';
 
 import ActionBtn from '../../../../lib/components/ActionBtn';
@@ -16,11 +16,10 @@ const Product = ({ product }) => {
       <ProductInfo
         product={product.name}
         producer={product.producer}
-        price={product.price}
-        priceBefore={product.priceBefore}
         image={product.image}
         pid={product._id}
       />
+
       <div className='RightSide'>
         <div className='ActionBtnsContainer'>
           <ActionBtn
