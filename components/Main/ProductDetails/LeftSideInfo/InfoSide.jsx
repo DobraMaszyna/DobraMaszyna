@@ -1,25 +1,27 @@
-import styled from 'styled-components';
-import CustomButton from './CustomButton';
+import styled from "styled-components";
+import CustomButton from "./CustomButton";
 
 const InfoSide = ({
   productName,
   producer,
+  productId,
   productFooters,
   productType,
   productPower,
 }) => {
   return (
     <InfoSideStyled>
-      <h1 className='productName'>{productName}</h1>
-      <p className='productProducer'>{producer}</p>
-      <p className='footers'>Ilość stopek w zestawie: {productFooters}</p>
-      <p className='type'>Rodzaj maszyny{productType}</p>
-      <p className='power'>Pobór mocy: {productPower}w</p>
+      <h1 className="productName">{productName}</h1>
+      <p className="productProducer">{producer}</p>
+      <p className="productId">Kod produktu:{productId}</p>
+      <p className="footers">Ilość stopek w zestawie: {productFooters}</p>
+      <p className="type">Rodzaj maszyny{productType}</p>
+      <p className="power">Pobór mocy: {productPower}w</p>
       <h3>Warianty</h3>
       <ul>
-        <CustomButton BtnImg={'/img/test.jpg'} />
-        <CustomButton BtnImg={'/img/test.jpg'} />
-        <CustomButton BtnImg={'/img/test.jpg'} />
+        <CustomButton BtnImg={"/img/test.jpg"} />
+        <CustomButton BtnImg={"/img/test.jpg"} />
+        <CustomButton BtnImg={"/img/test.jpg"} />
       </ul>
     </InfoSideStyled>
   );
