@@ -15,9 +15,11 @@ const TopSideStyled = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   height: 200px;
   justify-content: space-between;
   padding: 0 10%;
+  border-bottom: 1px solid ${(props) => props.theme.colors.purplePrimary};
 
   h1 {
     font-size: 40px;

@@ -1,7 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const CartList = () => {
-  return <CartListStyled>CartList</CartListStyled>;
+import CartProduct from "./CartProduct/Index";
+
+const CartList = ({ cartProducts }) => {
+  return (
+    <CartListStyled>
+      {cartProducts.map((product) => (
+        <CartProduct name={product.name} />
+      ))}
+    </CartListStyled>
+  );
 };
 
 const CartListStyled = styled.ul`

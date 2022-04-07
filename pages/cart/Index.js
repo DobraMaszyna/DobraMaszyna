@@ -1,19 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
-import CartList from '../../components/Main/Cart/CartList/Index';
-import TopSide from '../../components/Main/Cart/TopSide/Index';
+import CartList from "../../components/Main/Cart/CartList/Index";
+import TopSide from "../../components/Main/Cart/TopSide/Index";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart.cart);
-
-  console.log(cart);
+  const cartProducts = useSelector((state) => state.cart.cart);
 
   return (
     <CartStyled>
       <TopSide />
-      <CartList />
+      <CartList cartProducts={cartProducts} />
     </CartStyled>
   );
 };
@@ -24,6 +22,7 @@ const CartStyled = styled.div`
   align-items: center;
   justify-content: center;
   width: 90%;
+  margin: auto;
   border-radius: 40px;
 `;
 

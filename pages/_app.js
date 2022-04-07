@@ -1,14 +1,17 @@
-import Head from 'next/head';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Head from "next/head";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
-import { Provider } from 'react-redux';
-import store from '../redux/store';
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
-import Navbar from '../components/Navbar/Index';
-import CategoryList from '../components/CategoryList/Index';
+import Navbar from "../components/Navbar/Index";
+import CategoryList from "../components/CategoryList/Index";
 
-import './_app.css';
-import styled from 'styled-components';
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+
+import "./_app.css";
+import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -36,30 +39,34 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    gray: '#C5C5C5',
-    onyx: '#353839',
-    blue: '#8DD7F2',
-    purplePrimary: '#8E94F2',
-    purpleLighter: '#C6C9F8',
+    gray: "#C5C5C5",
+    onyx: "#353839",
+    blue: "#8DD7F2",
+    purplePrimary: "#8E94F2",
+    purpleLighter: "#C6C9F8",
   },
 };
 
 export default function App({ Component, pageProps }) {
+  let persistor = persistStore(store);
+
   return (
     <Provider store={store}>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Head>
-          <title>Dobra Maszyna</title>
-        </Head>
+      <PersistGate loading={null} persistor={persistor}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <Head>
+            <title>Dobra Maszyna</title>
+          </Head>
 
-        <Navbar />
-        <CategoryList />
+          <Navbar />
+          <CategoryList />
 
-        <AppContainer>
-          <Component {...pageProps} />
-        </AppContainer>
-      </ThemeProvider>
+          <AppContainer>
+            <Component {...pageProps} />
+          </AppContainer>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   );
 }
