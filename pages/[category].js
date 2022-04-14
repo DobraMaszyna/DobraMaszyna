@@ -12,20 +12,56 @@ const CategoryPage = ({ productList }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  try {
-    const productList = await getProducts(context.query.category, null, 20);
+export const getStaticPaths = () => {
+  return {
+    fallback: false,
+    paths: [
+      {
+        params: {
+          category: 'maszyny-domowe',
+        },
+      },
+      {
+        params: {
+          category: 'maszyny-przemyslowe',
+        },
+      },
+      {
+        params: {
+          category: 'hafciarki',
+        },
+      },
+      {
+        params: {
+          category: 'prasowanie',
+        },
+      },
+      {
+        params: {
+          category: 'akcesoria',
+        },
+      },
+      {
+        params: {
+          category: 'czesci-zamienne',
+        },
+      },
+      {
+        params: {
+          category: 'promocje',
+        },
+      },
+    ],
+  };
+};
 
-    return {
-      props: { isConnected: true, productList },
-    };
-  } catch (e) {
-    console.log('test');
-    console.error(e);
-    return {
-      props: { isConnected: false },
-    };
-  }
+export const getStaticProps = async (context) => {
+  const productList = await getProducts(context.params.category, null, 20);
+
+  return {
+    props: { productList },
+    revalidate: 60,
+  };
 };
 
 export default CategoryPage;

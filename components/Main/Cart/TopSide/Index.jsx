@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const TopSide = () => {
+const TopSide = ({ cartValue }) => {
   return (
     <TopSideStyled>
       <h1>Twój koszyk:</h1>
       <h2>
-        Razem: <span>1999zł</span>
+        Razem: <span>{cartValue} zł</span>
       </h2>
     </TopSideStyled>
   );

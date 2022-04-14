@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { addProduct } from '../../../../redux/cart';
+import { useSelector } from 'react-redux';
+import { addProduct, removeProduct } from '../../../../redux/cart';
 
 import ActionBtn from '../../../../lib/components/ActionBtn';
 import ProductInfo from './ProductInfo';
@@ -10,6 +11,17 @@ import Price from '../../../../lib/components/Price';
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.cart.cart);
+
+  const [isInCart, setIsInCart] = useState(false);
+
+  useEffect(() => {
+    if (cartProducts.length !== 0) {
+      cartProducts.map((prod) => setIsInCart(prod._id === product._id));
+    } else {
+      setIsInCart(false);
+    }
+  }, [cartProducts]);
 
   return (
     <ProductStyled>
@@ -22,13 +34,24 @@ const Product = ({ product }) => {
 
       <div className='RightSide'>
         <div className='ActionBtnsContainer'>
-          <ActionBtn
-            onClick={() => dispatch(addProduct(product))}
-            style={{ float: 'right' }}
-            title='Do koszyka'
-            btnClass='purple'
-            icon='https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png'
-          />
+          {isInCart ? (
+            <ActionBtn
+              onClick={() => dispatch(removeProduct(product._id))}
+              style={{ float: 'right', color: '#ff5757' }}
+              title='Usuń z koszyka'
+              btnClass='silver'
+              icon='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
+            />
+          ) : (
+            <ActionBtn
+              onClick={() => dispatch(addProduct(product))}
+              style={{ float: 'right' }}
+              title='Do koszyka'
+              btnClass='purple'
+              icon='https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png'
+            />
+          )}
+
           <ActionBtn
             style={{ float: 'right' }}
             title='Polub'

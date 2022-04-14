@@ -20,12 +20,14 @@ const PriceStyled = styled.div`
 
   p {
     color: #c6c9f8;
-    font-size: 1rem;
+    font-size: 1.5em;
+    text-decoration: line-through;
   }
 
   h1 {
     color: #8e94f2;
-    font-size: 2.5rem;
+    font-size: 2.8em;
+    line-height: 0.8;
   }
 `;
 
