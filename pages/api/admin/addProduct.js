@@ -22,7 +22,7 @@ export default async (req, res) => {
       if (err) return reject(err);
 
       let oldPath = files.image.filepath;
-      let newPath = `./public/img/${files.image.originalFilename}`;
+      let newPath = `./public/img/${fields.name}`;
 
       db.collection('products').insertOne({
         price: fields.price,
