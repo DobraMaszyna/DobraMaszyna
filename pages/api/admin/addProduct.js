@@ -5,31 +5,37 @@ import { promises as fs } from 'fs';
 
 var mv = require('mv');
 
-export default async function handler(req, res) {
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
+export default async (req, res) => {
   const client = await clientPromise;
-  const db = client.db('bmd_db');
+  const db = await client.db('bmd_db');
 
-  if (req.method !== 'POST') {
-    res.status(400).json({ error: 'Bad method' });
-    return;
-  }
+  const data = await new Promise((resolve, reject) => {
+    const form = new IncomingForm();
 
-  try {
-    const data = await new Promise((resolve, reject) => {
-      const form = new IncomingForm();
+    form.parse(req, (err, fields, files) => {
+      if (err) return reject(err);
 
-      form.parse(req, (err, fields, files) => {
-        if (err) return reject(err);
-        console.log(fields, files);
-        console.log(files.image.filepath);
-        var oldPath = files.image.filepath;
-        var newPath = `./public/uploads/${files.image.originalFilename}`;
-        mv(oldPath, newPath, function (err) {});
-        res.status(200).json({ fields, files });
+      let oldPath = files.image.filepath;
+      let newPath = `./public/img/${files.image.originalFilename}`;
+
+      db.collection('products').insertOne({
+        price: fields.price,
+        priceBefore: 0,
+        name: fields.name,
+        producer: fields.producer,
+        popularity: 0,
+        category: fields.category,
+        subcategory: fields.subcategory,
       });
+
+      mv(oldPath, newPath, function (err) {});
+      res.status(200).json();
     });
-    res.status(200).json(response);
-  } catch {
-    res.status(400).json({ error: 'Wrong request' });
-  }
-}
+  });
+};

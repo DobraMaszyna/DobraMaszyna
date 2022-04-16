@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 const AddProduct = () => {
+  const [image, setImage] = useState(null);
+  const [createObjectURL, setCreateObjectURL] = useState(null);
+
+  const [price, setPrice] = useState('');
   const [name, setName] = useState('');
   const [producer, setProducer] = useState('');
   const [category, setCategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
-  const [price, setPrice] = useState('');
-  const [image, setImage] = useState(null);
-
-  const [createObjectURL, setCreateObjectURL] = useState(null);
 
   const uploadToClient = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -19,20 +19,19 @@ const AddProduct = () => {
     }
   };
 
-  const addProduct = () => {   
-    const response = await fetch("/api/admin/addProduct", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: {
-        name,
-        producer,
-        category,
-        subcategory,
-        price,
-        image
-      }
+  const addProduct = async (event) => {
+    const body = new FormData();
+
+    body.append('image', image);
+    body.append('price', price);
+    body.append('name', name);
+    body.append('producer', producer);
+    body.append('category', category);
+    body.append('subcategory', subcategory);
+
+    const response = await fetch('/api/admin/addProduct', {
+      method: 'POST',
+      body,
     });
   };
 
