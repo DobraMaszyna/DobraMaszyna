@@ -50,16 +50,24 @@ const AddProduct = () => {
         placeholder='name'
         onChange={(e) => setName(e.target.value)}
       />
-      <input
+      <select
         type='text'
         placeholder='producer'
-        onChange={(e) => setProducer(e.target.value)}
-      />
-      <input
+        onChange={(e) => setProducer(e.target.value)}>
+        <option value='BERNINA AG'>BERNINA AG</option>
+      </select>
+      <select
         type='text'
         placeholder='category'
-        onChange={(e) => setCategory(e.target.value)}
-      />
+        onChange={(e) => setCategory(e.target.value)}>
+        <option value='maszyny-domowe'>maszyny-domowe</option>
+        <option value='maszyny-przemyslowe'>maszyny-przemyslowe</option>
+        <option value='hafciarki'>hafciarki</option>
+        <option value='prasowanie'>prasowanie</option>
+        <option value='akcesoria'>akcesoria</option>
+        <option value='czensci-zamienne'>czensci-zamienne</option>
+        <option value='promocje'>promocje</option>
+      </select>
       <input
         type='text'
         placeholder='subcategory'

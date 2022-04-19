@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import InfoSide from "./InfoSide";
+import styled from 'styled-components';
+import InfoSide from './InfoSide';
 
 const LeftSideInfo = ({ productName, producer }) => {
   return (
-    <LeftSideInfoStyled className="card">
-      <img src="/img/test.jpg" alt="" />
+    <LeftSideInfoStyled className='card'>
+      <img src={`/img/${productName}.jpeg`} alt='' />
       <InfoSide productName={productName} producer={producer} />
     </LeftSideInfoStyled>
   );

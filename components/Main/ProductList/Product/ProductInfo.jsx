@@ -7,7 +7,7 @@ const ProductInfo = ({ product, producer, image, pid }) => {
   return (
     <Link href={`produkt/${pid}`}>
       <ProductInfoStyled>
-        <img src='/img/test.jpg' alt='' />
+        <img src={`/img/${product}.jpeg`} alt='' />
         <div className='defaultInfo'>
           <motion.p
             whileHover={{ textDecoration: 'underline' }}
