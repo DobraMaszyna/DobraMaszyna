@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Price from '../../../../lib/components/price';
+import Price from '../../../../lib/components/Price';
 import Availability from '../../../../lib/components/Availability';
 import Delivery from './Delivery';
 import ActionBtn from '../../../../lib/components/ActionBtn';
