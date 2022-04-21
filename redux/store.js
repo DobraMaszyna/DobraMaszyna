@@ -4,10 +4,12 @@ import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 
-import cartReducer from './cart';
+import cart from './cart';
+import searchQuery from './searchQuery';
 
 const reducers = combineReducers({
-  cart: cartReducer,
+  cart,
+  searchQuery,
 });
 
 const persistConfig = {

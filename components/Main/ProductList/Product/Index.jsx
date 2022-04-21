@@ -16,11 +16,9 @@ const Product = ({ product }) => {
   const [isInCart, setIsInCart] = useState(false);
 
   useEffect(() => {
-    if (cartProducts.length !== 0) {
-      cartProducts.map((prod) => setIsInCart(prod._id === product._id));
-    } else {
-      setIsInCart(false);
-    }
+    cartProducts.filter((prod) => prod._id === product._id).length === 0
+      ? setIsInCart(false)
+      : setIsInCart(true);
   }, [cartProducts]);
 
   return (

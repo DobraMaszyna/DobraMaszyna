@@ -3,10 +3,13 @@ import styled from 'styled-components';
 const Price = ({ priceBefore, price }) => {
   return (
     <PriceStyled>
-      <p>
-        {priceBefore}
-        {priceBefore % 1 === 0 && '.00'} zł
-      </p>
+      {priceBefore === 10 ||
+        (priceBefore === price && (
+          <p>
+            {priceBefore}
+            {priceBefore % 1 === 0 && '.00'} zł
+          </p>
+        ))}
       <h1>
         {price}
         {price % 1 === 0 && '.00'} zł
@@ -16,7 +19,11 @@ const Price = ({ priceBefore, price }) => {
 };
 
 const PriceStyled = styled.div`
+  display: flex;
+  flex-direction: column;
   text-align: right;
+  justify-content: space-around;
+  height: 4.5rem;
 
   p {
     color: #c6c9f8;

@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import ProductList from "./ProductList/Index";
-import SortOptions from "./SortOptions";
+import ProductList from './ProductList/Index';
+import SortOptions from './SortOptions';
 
 const Main = ({ products }) => {
   return (
     <MainStyled>
-      <div className="ContentContainer card">
+      <div className='ContentContainer card'>
         <SortOptions />
         <ProductList products={products} />
       </div>
@@ -22,9 +22,10 @@ const MainStyled = styled.div`
   .ContentContainer {
     width: 92%;
     height: 100%;
-    margin: auto;
+    margin-inline: auto;
     border-radius: 41px 41px 0 0;
-    padding: 0 90px;
+    padding-inline: 90px;
+    padding-bottom: 20px;
   }
 `;
 

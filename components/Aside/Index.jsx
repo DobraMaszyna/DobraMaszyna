@@ -16,7 +16,7 @@ const AsideStyled = styled.div`
   display: none;
   float: left;
   width: 410px;
-  min-height: 100vh;
+  height: 100%;
 
   .AsideCard {
     width: 319px;
@@ -24,7 +24,7 @@ const AsideStyled = styled.div`
     display: flex;
     flex-direction: column;
     padding: 40px 50px;
-    border-radius: 0 41px;
+    border-radius: 0 41px 41px 0;
   }
 
   @media only screen and (min-width: 768px) {

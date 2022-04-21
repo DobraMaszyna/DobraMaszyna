@@ -6,8 +6,8 @@ const AddProduct = () => {
 
   const [price, setPrice] = useState('');
   const [name, setName] = useState('');
-  const [producer, setProducer] = useState('');
-  const [category, setCategory] = useState('');
+  const [producer, setProducer] = useState('BERNINA AG');
+  const [category, setCategory] = useState('maszyny-domowe');
   const [subcategory, setSubcategory] = useState('');
 
   const uploadToClient = (event) => {
@@ -45,22 +45,24 @@ const AddProduct = () => {
         justifyContent: 'space-around',
       }}>
       <h1>Dodaj produkt</h1>
+
       <input
         type='text'
         placeholder='name'
         onChange={(e) => setName(e.target.value)}
       />
-      <select
-        type='text'
-        placeholder='producer'
-        onChange={(e) => setProducer(e.target.value)}>
-        <option value='BERNINA AG'>BERNINA AG</option>
+
+      <select value={producer} onChange={(e) => setProducer(e.target.value)}>
+        <option value='BERNINA AG' selected='selected'>
+          BERNINA AG
+        </option>
+        <option value='JUKI'>JUKI</option>
       </select>
-      <select
-        type='text'
-        placeholder='category'
-        onChange={(e) => setCategory(e.target.value)}>
-        <option value='maszyny-domowe'>maszyny-domowe</option>
+
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value='maszyny-domowe' selected='selected'>
+          maszyny-domowe
+        </option>
         <option value='maszyny-przemyslowe'>maszyny-przemyslowe</option>
         <option value='hafciarki'>hafciarki</option>
         <option value='prasowanie'>prasowanie</option>
@@ -68,17 +70,21 @@ const AddProduct = () => {
         <option value='czensci-zamienne'>czensci-zamienne</option>
         <option value='promocje'>promocje</option>
       </select>
+
       <input
         type='text'
         placeholder='subcategory'
         onChange={(e) => setSubcategory(e.target.value)}
       />
+
       <input type='file' name='myImage' onChange={uploadToClient} />
+
       <input
         type='number'
         placeholder='price'
         onChange={(e) => setPrice(e.target.value)}
       />
+
       <button onClick={addProduct}>Dodaj</button>
     </div>
   );

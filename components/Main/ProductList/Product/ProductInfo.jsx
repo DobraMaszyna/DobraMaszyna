@@ -7,7 +7,7 @@ const ProductInfo = ({ product, producer, image, pid }) => {
   return (
     <Link href={`produkt/${pid}`}>
       <ProductInfoStyled>
-        <img src={`/img/${product}.jpeg`} alt='' />
+        <img src={`/productImages/${product}.jpeg`} alt='' />
         <div className='defaultInfo'>
           <motion.p
             whileHover={{ textDecoration: 'underline' }}
@@ -36,8 +36,8 @@ const ProductInfoStyled = styled.div`
 
   .defaultInfo {
     height: 100%;
-    margin-top: 20%;
     margin-left: 2%;
+    padding-top: 10%;
 
     p {
       font-weight: bold;

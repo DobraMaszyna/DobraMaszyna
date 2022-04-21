@@ -13,7 +13,7 @@ const CartProduct = ({ name, producer, price, priceBefore, pid }) => {
 
   return (
     <CartProductStyled>
-      <img className='prodImg' src='/img/test.jpg' alt='' />
+      <img className='prodImg' src={`/productImages/${name}.jpeg`} alt='' />
 
       <div>
         <h1 className='cartProdName'>{name}</h1>
@@ -76,7 +76,7 @@ const CartProductStyled = styled.div`
   .PriceContainer {
     display: flex;
     height: 100%;
-    align-items: flex-end;
+    align-items: center;
     padding-bottom: 34px;
     font-size: 16px;
   }

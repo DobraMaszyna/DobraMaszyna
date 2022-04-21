@@ -1,9 +1,7 @@
 import clientPromise from '../../../lib/mongodb';
-
 import { IncomingForm } from 'formidable';
-import { promises as fs } from 'fs';
 
-var mv = require('mv');
+let mv = require('mv');
 
 export const config = {
   api: {
@@ -20,9 +18,9 @@ export default async (req, res) => {
 
     form.parse(req, (err, fields, files) => {
       if (err) return reject(err);
-
+      console.log(fields);
       let oldPath = files.image.filepath;
-      let newPath = `./public/img/${fields.name}.jpeg`;
+      let newPath = `./public/productImages/${fields.name}.jpeg`;
 
       db.collection('products').insertOne({
         price: fields.price,
