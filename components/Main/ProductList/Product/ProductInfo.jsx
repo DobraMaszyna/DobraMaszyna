@@ -24,14 +24,15 @@ const ProductInfo = ({ product, producer, image, pid }) => {
 
 const ProductInfoStyled = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 80%;
   height: 100%;
   text-align: left;
   cursor: pointer;
 
   img {
-    width: 250px;
+    width: 60%;
+    margin-inline: auto;
   }
 
   .defaultInfo {
@@ -55,6 +56,16 @@ const ProductInfoStyled = styled.div`
   .product_prize_before {
     text-decoration: line-through;
     font-weight: normal;
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+
+    img {
+      width: 250px;
+      margin-inline: 0;
+    }
   }
 `;
 

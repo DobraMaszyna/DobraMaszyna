@@ -24,7 +24,7 @@ const MainStyled = styled.div`
     height: 100%;
     margin-inline: auto;
     border-radius: 41px 41px 0 0;
-    padding-inline: 90px;
+    padding-inline: 5vmin;
     padding-bottom: 20px;
   }
 `;

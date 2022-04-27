@@ -1,17 +1,18 @@
-import Head from "next/head";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Head from 'next/head';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { Provider } from "react-redux";
-import store from "../redux/store";
+import { Provider, useSelector } from 'react-redux';
+import store from '../redux/store';
 
-import Navbar from "../components/Navbar/Index";
-import CategoryList from "../components/CategoryList/Index";
+import Navbar from '../components/Navbar/Index';
+import CategoryList from '../components/CategoryList/Index';
 
-import { PersistGate } from "redux-persist/integration/react";
-import { persistStore } from "redux-persist";
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 
-import "./_app.css";
-import styled from "styled-components";
+import './_app.css';
+import styled from 'styled-components';
+import SearchedProducts from '../components/Navbar/SearchedProducts/Index';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -37,13 +38,24 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+// @media only screen and (${props => props.breakpoints.mobileL})
+
 const theme = {
   colors: {
-    gray: "#C5C5C5",
-    onyx: "#353839",
-    blue: "#8DD7F2",
-    purplePrimary: "#8E94F2",
-    purpleLighter: "#C6C9F8",
+    gray: '#C5C5C5',
+    onyx: '#353839',
+    blue: '#8DD7F2',
+    purplePrimary: '#8E94F2',
+    purpleLighter: '#C6C9F8',
+  },
+  size: {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '2560px',
   },
 };
 

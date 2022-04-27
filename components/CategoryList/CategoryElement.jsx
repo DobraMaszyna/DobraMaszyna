@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styled from "styled-components";
+import Link from 'next/link';
+import styled from 'styled-components';
 
 const CategoryElement = ({ imgSrc, title, href, hoverHandler }) => {
   return (
@@ -7,7 +7,7 @@ const CategoryElement = ({ imgSrc, title, href, hoverHandler }) => {
       <CategoryElementStyled>
         <Link href={`/${href}`}>
           <a>
-            <img src={imgSrc} alt="" />
+            <img src={imgSrc} alt='' />
             <p>{title}</p>
           </a>
         </Link>

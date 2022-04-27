@@ -8,6 +8,7 @@ import { addProduct, removeProduct } from '../../../../redux/cart';
 import ActionBtn from '../../../../lib/components/ActionBtn';
 import ProductInfo from './ProductInfo';
 import Price from '../../../../lib/components/Price';
+import { BrowserView } from 'react-device-detect';
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
@@ -31,32 +32,34 @@ const Product = ({ product }) => {
       />
 
       <div className='RightSide'>
-        <div className='ActionBtnsContainer'>
-          {isInCart ? (
-            <ActionBtn
-              onClick={() => dispatch(removeProduct(product._id))}
-              style={{ float: 'right', color: '#ff5757' }}
-              title='Usuń z koszyka'
-              btnClass='silver'
-              icon='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
-            />
-          ) : (
-            <ActionBtn
-              onClick={() => dispatch(addProduct(product))}
-              style={{ float: 'right' }}
-              title='Do koszyka'
-              btnClass='purple'
-              icon='https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png'
-            />
-          )}
+        <BrowserView>
+          <div className='ActionBtnsContainer'>
+            {isInCart ? (
+              <ActionBtn
+                onClick={() => dispatch(removeProduct(product._id))}
+                style={{ float: 'right', color: '#ff5757' }}
+                title='Usuń z koszyka'
+                btnClass='silver'
+                icon='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
+              />
+            ) : (
+              <ActionBtn
+                onClick={() => dispatch(addProduct(product))}
+                style={{ float: 'right' }}
+                title='Do koszyka'
+                btnClass='purple'
+                icon='https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png'
+              />
+            )}
 
-          <ActionBtn
-            style={{ float: 'right' }}
-            title='Polub'
-            btnClass='silver'
-            icon='https://img.icons8.com/ios/50/000000/like--v1.png'
-          />
-        </div>
+            <ActionBtn
+              style={{ float: 'right' }}
+              title='Polub'
+              btnClass='silver'
+              icon='https://img.icons8.com/ios/50/000000/like--v1.png'
+            />
+          </div>
+        </BrowserView>
         <Price price={product.price} priceBefore={product.priceBefore} />
       </div>
     </ProductStyled>
@@ -65,6 +68,7 @@ const Product = ({ product }) => {
 
 const ProductStyled = styled.li`
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   height: 303px;
@@ -73,12 +77,20 @@ const ProductStyled = styled.li`
 
   .RightSide {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     width: 40%;
     height: 100%;
     padding: 25px 0;
     text-align: right;
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+
+    .RightSide {
+      flex-direction: column;
+    }
   }
 `;
 

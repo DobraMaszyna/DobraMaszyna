@@ -6,7 +6,7 @@ export default async (req, res) => {
 
     console.log(c, num, sq);
 
-    const result = await getProducts(c, parseInt(num), sq);
+    const result = await getProducts(c ? c : null, parseInt(num), sq);
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');

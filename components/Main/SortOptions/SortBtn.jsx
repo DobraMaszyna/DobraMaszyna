@@ -3,8 +3,10 @@ import styled from 'styled-components';
 const Sorting = ({ sortTypes }) => {
   return (
     <SortBtnStyled>
-      {sortTypes.map((item) => (
-        <option value='byPopularity'>{item}</option>
+      {sortTypes.map((item, index) => (
+        <option value='byPopularity' key={index}>
+          {item}
+        </option>
       ))}
     </SortBtnStyled>
   );

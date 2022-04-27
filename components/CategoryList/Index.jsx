@@ -1,24 +1,16 @@
 import { useState, useEffect } from 'react';
+import { MobileView } from 'react-device-detect';
 
 import styled from 'styled-components';
 
 import CategoryElement from './CategoryElement';
 import CategoryDetails from './CategoryDetails';
-
-const DUMMY_DATA = {
-  stębnówki: [
-    'z pojedynczym transportem',
-    'z podwójny transportem',
-    'z potrójny transportem',
-    '2-igłowe',
-  ],
-};
+import SearchBar from '../Navbar/SearchBar';
 
 const CategoryList = () => {
-  const [detailsContent, setDetailsContent] = useState(DUMMY_DATA);
-
   const [isOverElement, setIsOverElement] = useState(false);
   const [isOverDetails, setIsOverDetails] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const [isOver, setIsOver] = useState(false);
 
@@ -81,12 +73,14 @@ const CategoryList = () => {
             hoverHandler={hoverElementHandler}
           />
         </ul>
+        <div class='menu'>
+          <SearchBar />
+          <button>
+            <img src='https://img.icons8.com/dotty/80/000000/menu-rounded.png' />
+          </button>
+        </div>
       </div>
-      <CategoryDetails
-        detailsContent={detailsContent}
-        hoverHandler={hoverDetailsHandler}
-        isOver={isOver}
-      />
+      <CategoryDetails hoverHandler={hoverDetailsHandler} isOver={isOver} />
     </CategoryContainerStyled>
   );
 };
@@ -100,13 +94,31 @@ const CategoryContainerStyled = styled.div`
     padding-top: 90px;
     z-index: 90;
   }
-
   ul {
     display: flex;
     justify-content: space-around;
     width: 100%;
     padding: 0 50px;
     z-index: 90;
+  }
+  .menu {
+    display: none;
+  }
+
+  @media (max-width: 425px) {
+    ul {
+      display: none;
+    }
+    .menu {
+      display: flex;
+
+      align-items: center;
+    }
+
+    button {
+      width: 200px;
+      float: right;
+    }
   }
 `;
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { useDispatch } from 'react-redux';
 
-import { setQuery } from '../../redux/searchQuery';
+import { setQuery, chageIsFocused } from '../../redux/searchQuery';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const SearchBar = () => {
         type='text'
         placeholder='Wyszukaj'
         onChange={(e) => dispatch(setQuery(e.target.value))}
+        onFocus={() => chageIsFocused}
       />
 
       <SearchBtnStyled>

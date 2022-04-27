@@ -18,6 +18,10 @@ const AsideStyled = styled.div`
   width: 410px;
   height: 100%;
 
+  @media only screen and (min-width: 768px) {
+    display: inline;
+  }
+
   .AsideCard {
     width: 319px;
     height: 100%;
@@ -25,10 +29,6 @@ const AsideStyled = styled.div`
     flex-direction: column;
     padding: 40px 50px;
     border-radius: 0 41px 41px 0;
-  }
-
-  @media only screen and (min-width: 768px) {
-    display: initial;
   }
 `;
 
