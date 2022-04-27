@@ -53,9 +53,6 @@ const NavbarStyled = styled.nav`
   max-width: 100vw;
 
   @media (max-width: 768px) {
-    .search {
-      background-color: red;
-    }
   }
 
   .NavContainer {
