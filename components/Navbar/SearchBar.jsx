@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
-import { setQuery, chageIsFocused } from '../../redux/searchQuery';
+import { setQuery, chageIsFocused } from "../../redux/searchQuery";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -10,14 +10,14 @@ const SearchBar = () => {
   return (
     <SearchbarStyled>
       <input
-        type='text'
-        placeholder='Wyszukaj'
+        type="text"
+        placeholder="Wyszukaj"
         onChange={(e) => dispatch(setQuery(e.target.value))}
         onFocus={() => chageIsFocused}
       />
 
       <SearchBtnStyled>
-        <img src='https://img.icons8.com/dotty/80/C5C5C5/search.png' />
+        <img src="https://img.icons8.com/dotty/80/C5C5C5/search.png" />
       </SearchBtnStyled>
     </SearchbarStyled>
   );
