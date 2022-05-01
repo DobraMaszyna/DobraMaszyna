@@ -4,25 +4,12 @@ import { MobileView } from 'react-device-detect';
 import styled from 'styled-components';
 
 import CategoryElement from './CategoryElement';
-import SubcategriesList from './SubcategriesList/Index';
+import SubcategoriesList from './SubcategoriesList/Index';
 
 const CategoryList = () => {
   const [isOverElement, setIsOverElement] = useState(false);
-  const [isOverDetails, setIsOverDetails] = useState(false);
-
-  const [isOver, setIsOver] = useState(false);
 
   const hoverElementHandler = () => setIsOverElement(!isOverElement);
-
-  const hoverDetailsHandler = () => setIsOverDetails(!isOverDetails);
-
-  useEffect(() => {
-    if (isOverElement || isOverDetails) {
-      setIsOver(true);
-    } else {
-      setIsOver(false);
-    }
-  }, [isOverDetails, isOverElement]);
 
   return (
     <>
@@ -33,47 +20,54 @@ const CategoryList = () => {
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/cottage.png'
               title='Maszyny Domowe'
               href='maszyny-domowe'
-              hoverHandler={hoverElementHandler}
+              onMouseEnter={hoverElementHandler}
+              onMouseLeave={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/factory.png'
               title='Maczyny Przemysłowe'
               href='maszyny-przemyslowe'
-              hoverHandler={hoverElementHandler}
+              onMouseOver={hoverElementHandler}
+              onMouse={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-machine.png'
               title='Hafciarki'
               href='hafciarki'
-              hoverHandler={hoverElementHandler}
+              onMouseOver={hoverElementHandler}
+              onMouse={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/ironing.png'
               title='Prasowanie'
               href='prasowanie'
-              hoverHandler={hoverElementHandler}
+              onMouseOver={hoverElementHandler}
+              onMouse={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/pin-cushion.png'
               title='Akcesoria'
               href='akcesoria'
-              hoverHandler={hoverElementHandler}
+              onMouseOver={hoverElementHandler}
+              onMouse={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-button.png'
               title='Części Zamienne'
               href='czesci-zamienne'
-              hoverHandler={hoverElementHandler}
+              onMouseOver={hoverElementHandler}
+              onMouse={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/discount.png'
               title='Promocje'
               href='promocje'
-              hoverHandler={hoverElementHandler}
+              onMouseOver={hoverElementHandler}
+              onMouse={hoverElementHandler}
             />
           </ul>
         </div>
-        <SubcategriesList />
+        {isOverElement && <SubcategoriesList />}
       </CategoryContainerStyled>
     </>
   );
