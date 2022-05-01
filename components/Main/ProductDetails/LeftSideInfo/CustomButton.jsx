@@ -21,6 +21,8 @@ const CustomButtonStyled = styled(motion.li)`
 
   img {
     height: 45px;
+    width: auto;
+    object-fit: contain;
   }
 `;
 

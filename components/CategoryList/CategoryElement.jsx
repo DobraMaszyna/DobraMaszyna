@@ -4,7 +4,9 @@ import styled from 'styled-components';
 const CategoryElement = ({ imgSrc, title, href, hoverHandler }) => {
   return (
     <>
-      <CategoryElementStyled>
+      <CategoryElementStyled
+        onMouseOver={hoverHandler}
+        onMouseOut={hoverHandler}>
         <Link href={`/${href}`}>
           <a>
             <img src={imgSrc} alt='' />

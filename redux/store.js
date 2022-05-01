@@ -6,10 +6,12 @@ import storage from 'redux-persist/lib/storage';
 
 import cart from './cart';
 import searchQuery from './searchQuery';
+import menu from './menu';
 
 const reducers = combineReducers({
   cart,
   searchQuery,
+  menu,
 });
 
 const persistConfig = {

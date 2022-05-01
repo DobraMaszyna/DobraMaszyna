@@ -1,15 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import LeftSideInfo from "../../components/Main/ProductDetails/LeftSideInfo/Index";
-import RightSideInfo from "../../components/Main/ProductDetails/RightSideInfo/Index";
-import MoreInfo from "../../components/Main/ProductDetails/MoreInfo/Index";
+import LeftSideInfo from '../../components/Main/ProductDetails/LeftSideInfo/Index';
+import RightSideInfo from '../../components/Main/ProductDetails/RightSideInfo/Index';
+import MoreInfo from '../../components/Main/ProductDetails/MoreInfo/Index';
 
-import getProductInfo from "../../lib/api/getProductInfo";
+import getProductInfo from '../../lib/api/getProductInfo';
 
 const ProductPage = ({ productInfo }) => {
   return (
     <ProductViewStyled>
-      <div className="topContainer">
+      <div className='topContainer'>
         <LeftSideInfo
           productName={productInfo.name}
           producer={productInfo.producer}
@@ -29,6 +29,7 @@ const ProductViewStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  overflow-x: hidden;
 
   .name {
     position: absolute;
@@ -36,7 +37,15 @@ const ProductViewStyled = styled.div`
 
   .topContainer {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .topContainer {
+      flex-direction: row;
+    }
   }
 `;
 

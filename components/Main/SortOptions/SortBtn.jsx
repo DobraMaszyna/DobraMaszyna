@@ -16,7 +16,6 @@ const SortBtnStyled = styled.select`
   display: flex;
   align-items: center;
   margin: 50px 15px;
-  position: relative;
   font-weight: 600;
   padding: 10px 0;
   border: none;

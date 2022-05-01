@@ -13,6 +13,7 @@ import { persistStore } from 'redux-persist';
 import './_app.css';
 import styled from 'styled-components';
 import SearchedProducts from '../components/Navbar/SearchedProducts/Index';
+import Menu from '../components/Mobile/Menu/Index';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -73,6 +74,7 @@ export default function App({ Component, pageProps }) {
 
           <Navbar />
           <CategoryList />
+          <Menu />
 
           <AppContainer>
             <Component {...pageProps} />

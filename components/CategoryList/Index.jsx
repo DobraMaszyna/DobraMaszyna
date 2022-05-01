@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MobileView } from 'react-device-detect';
+import { useSelector } from 'react-redux';
 
 import styled from 'styled-components';
 
@@ -20,50 +20,43 @@ const CategoryList = () => {
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/cottage.png'
               title='Maszyny Domowe'
               href='maszyny-domowe'
-              onMouseEnter={hoverElementHandler}
-              onMouseLeave={hoverElementHandler}
+              hoverHandler={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/factory.png'
               title='Maczyny Przemysłowe'
               href='maszyny-przemyslowe'
-              onMouseOver={hoverElementHandler}
-              onMouse={hoverElementHandler}
+              hoverHandler={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-machine.png'
               title='Hafciarki'
               href='hafciarki'
-              onMouseOver={hoverElementHandler}
-              onMouse={hoverElementHandler}
+              hoverHandler={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/ironing.png'
               title='Prasowanie'
               href='prasowanie'
-              onMouseOver={hoverElementHandler}
-              onMouse={hoverElementHandler}
+              hoverHandler={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/pin-cushion.png'
               title='Akcesoria'
               href='akcesoria'
-              onMouseOver={hoverElementHandler}
-              onMouse={hoverElementHandler}
+              hoverHandler={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-button.png'
               title='Części Zamienne'
               href='czesci-zamienne'
-              onMouseOver={hoverElementHandler}
-              onMouse={hoverElementHandler}
+              hoverHandler={hoverElementHandler}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/discount.png'
               title='Promocje'
               href='promocje'
-              onMouseOver={hoverElementHandler}
-              onMouse={hoverElementHandler}
+              hoverHandler={hoverElementHandler}
             />
           </ul>
         </div>
@@ -92,6 +85,9 @@ const CategoryContainerStyled = styled.div`
   }
 
   @media (max-width: 768px) {
+    .CategoryList {
+      display: none;
+    }
     ul {
       position: fixed;
       width: 100%;

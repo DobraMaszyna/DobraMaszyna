@@ -40,11 +40,22 @@ const RightSideInfo = ({ price, priceBefore }) => {
 };
 
 const PaymentStyled = styled.div`
-  width: 20%;
-  padding: 50px;
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 30px;
 
   ul {
-    margin: 50px 0;
+    margin: 10px 0;
+  }
+
+  @media (min-width: 768px) {
+    width: 20%;
+    padding: 50px;
+
+    ul {
+      margin: 50px 0;
+    }
   }
 `;
 

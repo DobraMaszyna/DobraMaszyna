@@ -7,9 +7,14 @@ import SearchBar from './SearchBar';
 import NavIcon from './NavIcon';
 import SearchedProducts from './SearchedProducts/Index';
 
+import { useDispatch } from 'react-redux';
+import { changeState } from '../../redux/menu';
+
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
   const [defaultNavState, setDefaultNavState] = useState(true);
+
+  const dispatch = useDispatch();
 
   if (typeof window !== 'undefined') {
     window.addEventListener('scroll', () => {
@@ -39,7 +44,7 @@ const Navbar = () => {
           </Link>
           <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/like.png' />
         </ul>
-        <button className='bars'>
+        <button className='bars' onClick={() => dispatch(changeState())}>
           <img src='https://img.icons8.com/dotty/80/000000/menu-rounded.png' />
         </button>
       </div>
@@ -68,15 +73,20 @@ const NavbarStyled = styled.nav`
     transition: height 0.25s ease-in-out;
 
     ul {
+      width: 40%;
+      transform: translateX(-10%);
       display: flex;
-      width: 15%;
       justify-content: space-around;
       list-style: none;
       margin-left: auto;
     }
 
+    div:first-child {
+      transform: translateX(-95%);
+    }
+
     .bars {
-      display: none;
+      display: block;
       width: 40px;
       height: 40px;
       background-color: transparent;
@@ -87,19 +97,14 @@ const NavbarStyled = styled.nav`
       width: 100%;
     }
 
-    @media (max-width: 768px) {
+    @media (min-width: 768px) {
       .bars {
-        display: block;
-      }
-
-      div {
-        transform: translateX(-95%);
+        display: none;
       }
 
       ul {
-        width: 20%;
-        transform: translateX(-60%);
         display: flex;
+        width: 27%;
         justify-content: space-around;
         list-style: none;
         margin-left: auto;
