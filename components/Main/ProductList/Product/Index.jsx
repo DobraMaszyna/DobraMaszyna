@@ -78,7 +78,7 @@ const ProductStyled = styled.li`
   .RightSide {
     display: flex;
     justify-content: space-between;
-    width: 40%;
+    width: 80%;
     height: 100%;
     padding: 25px 0;
     text-align: right;
@@ -90,6 +90,7 @@ const ProductStyled = styled.li`
 
     .RightSide {
       flex-direction: column;
+      width: 40%;
     }
   }
 `;

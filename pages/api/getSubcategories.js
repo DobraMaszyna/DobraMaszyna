@@ -1,14 +1,8 @@
-import getProducts from '../../lib/api/getProductList';
-
 export default async (req, res) => {
   if (req.method === 'GET') {
-    const { c, num } = req.query;
+    const { category } = req.query;
 
-    console.log(c, num);
-
-    const result = await getProducts(c, parseInt(num));
-
-    res.statusCode = 200;
+    res.status(200);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(result));
   } else {

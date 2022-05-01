@@ -14,9 +14,7 @@ const SearchedProducts = ({ defaultNavState }) => {
       if (searchQuery.trim().length !== 0) {
         setIsEmpty(false);
 
-        const data = await fetch(
-          `/api/getProductList?num=20&sq=${searchQuery}`
-        );
+        const data = await fetch(`/api/searchQuery?q=${searchQuery}&num=10`);
 
         const response = await data.json();
 
@@ -26,7 +24,6 @@ const SearchedProducts = ({ defaultNavState }) => {
         setSearchProducts([]);
       }
     }, 1000);
-    console.log('testzz');
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchQuery]);
@@ -36,15 +33,16 @@ const SearchedProducts = ({ defaultNavState }) => {
       defaultNavState={defaultNavState}
       isEmpty={isEmpty}
       className='card'>
-      {searchProducts.map((prod) => (
-        <p>
-          <img
-            src='https://img.icons8.com/dotty/80/000000/search.png'
-            width='32px'
-          />
-          {prod.name}
-        </p>
-      ))}
+      {searchProducts.length !== 0 &&
+        searchProducts.products.map((prod) => (
+          <p>
+            <img
+              src='https://img.icons8.com/dotty/80/000000/search.png'
+              width='32px'
+            />
+            {prod.name}
+          </p>
+        ))}
     </SearchedProductsStyled>
   );
 };

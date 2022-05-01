@@ -28,7 +28,7 @@ const SearchbarStyled = styled.div`
   align-items: center;
   position: absolute;
   left: 50%;
-  width: 30%;
+  width: 50vmin;
   transform: translateX(-50%);
 
   input {

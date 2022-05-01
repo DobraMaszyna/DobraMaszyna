@@ -1,6 +1,6 @@
 import getProductInfo from '../../lib/api/getProductInfo';
 
-export default async function handler(req, res) {
+export default async (req, res) => {
   const { productId } = req.query;
 
   try {
@@ -10,4 +10,4 @@ export default async function handler(req, res) {
   } catch {
     res.status(400).json("Product does't exit");
   }
-}
+};

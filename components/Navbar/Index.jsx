@@ -39,6 +39,9 @@ const Navbar = () => {
           </Link>
           <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/like.png' />
         </ul>
+        <button className='bars'>
+          <img src='https://img.icons8.com/dotty/80/000000/menu-rounded.png' />
+        </button>
       </div>
       <SearchedProducts defaultNavState={defaultNavState} />
     </NavbarStyled>
@@ -47,7 +50,6 @@ const Navbar = () => {
 
 const NavbarStyled = styled.nav`
   position: fixed;
-  flex-direction: column;
   display: flex;
   width: 100%;
   max-width: 100vw;
@@ -55,7 +57,8 @@ const NavbarStyled = styled.nav`
   .NavContainer {
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: wrap;
+    justify-content: space-between;
     width: 100%;
     height: ${(props) => (props.defaultNavState ? '75px' : '58px')};
     padding: 0 2% 0 20%;
@@ -70,6 +73,37 @@ const NavbarStyled = styled.nav`
       justify-content: space-around;
       list-style: none;
       margin-left: auto;
+    }
+
+    .bars {
+      display: none;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      border: none;
+    }
+
+    .bars img {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .bars {
+        display: block;
+      }
+
+      div {
+        transform: translateX(-95%);
+      }
+
+      ul {
+        width: 20%;
+        transform: translateX(-60%);
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        margin-left: auto;
+      }
     }
   }
 `;

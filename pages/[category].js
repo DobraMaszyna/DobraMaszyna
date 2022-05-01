@@ -56,7 +56,7 @@ export const getStaticPaths = () => {
 };
 
 export const getStaticProps = async (context) => {
-  const productList = await getProducts(context.params.category, 20, '');
+  const productList = await getProducts(context.params.category, 20);
 
   return {
     props: { productList },
