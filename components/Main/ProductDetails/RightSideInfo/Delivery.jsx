@@ -4,7 +4,6 @@ const Delivery = ({ title, icon }) => {
   return (
     <DelveriyStyled>
       <img class='icon' src={icon} />
-
       <p>{title}</p>
     </DelveriyStyled>
   );
@@ -29,6 +28,9 @@ const DelveriyStyled = styled.li`
 
   p {
     font-size: 12px;
+  }
+
+  @media (min-width: 768px) {
   }
 `;
 
