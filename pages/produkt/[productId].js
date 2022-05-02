@@ -19,7 +19,7 @@ const ProductPage = ({ productInfo }) => {
           priceBefore={productInfo.priceBefore}
         />
       </div>
-      <MoreInfo />
+      <MoreInfo productInfo={productInfo} />
     </ProductViewStyled>
   );
 };

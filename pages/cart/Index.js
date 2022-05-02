@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import CartList from '../../components/Main/Cart/CartList/Index';
 import TopSide from '../../components/Main/Cart/TopSide/Index';
 
+//aswe
 const Cart = () => {
   const cartProducts = useSelector((state) => state.cart.cart);
 

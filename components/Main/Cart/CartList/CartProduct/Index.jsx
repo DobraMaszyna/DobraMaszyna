@@ -24,18 +24,20 @@ const CartProduct = ({ name, producer, price, priceBefore, pid }) => {
           <CartActionBtn icon='https://img.icons8.com/dotty/80/7D7D7D/scales.png' />
         </div>
       </div>
-      <div className='PriceContainer'>
-        <Price price={price} priceBefore={priceBefore} />
+      <div className='PaymantContainer'>
+        <div className='PriceContainer'>
+          <Price price={price} priceBefore={priceBefore} />
+        </div>
+        <CartSelectQuantity />
+        <motion.img
+          className='delete'
+          src='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
+          alt=''
+          onClick={() => dispatch(removeProduct(pid))}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        />
       </div>
-      <CartSelectQuantity />
-      <motion.img
-        className='delete'
-        src='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
-        alt=''
-        onClick={() => dispatch(removeProduct(pid))}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      />
     </CartProductStyled>
   );
 };
@@ -43,15 +45,15 @@ const CartProduct = ({ name, producer, price, priceBefore, pid }) => {
 const CartProductStyled = styled.div`
   display: flex;
   align-items: center;
-  height: 50px;
-  width: 90%;
+  height: 250px;
+  width: 95%;
   padding-left: 5%;
   margin: 0 auto;
   border-bottom: 1px solid ${(props) => props.theme.colors.gray};
   justify-content: space-around;
 
   .prodImg {
-    height: 75%;
+    height: 55%;
     margin-right: 2%;
   }
 
@@ -77,13 +79,39 @@ const CartProductStyled = styled.div`
     display: flex;
     height: 100%;
     align-items: center;
-    padding-bottom: 34px;
+    //padding-bottom: 34px;
     font-size: 16px;
   }
 
   .delete {
-    width: 43px;
+    width: 40px;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    transform: translateY(-25%);
+    height: 300px;
+
+    .prodImg {
+      height: 45%;
+    }
+
+    .cartProdName {
+      font-size: 20px;
+    }
+
+    .PriceContainer {
+      font-size: 14px;
+    }
+
+    .PaymantContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
   }
 `;
 
