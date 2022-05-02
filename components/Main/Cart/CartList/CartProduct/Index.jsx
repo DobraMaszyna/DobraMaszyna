@@ -43,7 +43,7 @@ const CartProduct = ({ name, producer, price, priceBefore, pid }) => {
 const CartProductStyled = styled.div`
   display: flex;
   align-items: center;
-  height: 200px;
+  height: 50px;
   width: 90%;
   padding-left: 5%;
   margin: 0 auto;
