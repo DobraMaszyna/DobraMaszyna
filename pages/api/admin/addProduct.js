@@ -30,6 +30,8 @@ export default async (req, res) => {
         popularity: 0,
         category: fields.category,
         subcategory: fields.subcategory,
+        equipment: fields.equipment,
+        props: fields.props,
       });
 
       mv(oldPath, newPath, function (err) {});
