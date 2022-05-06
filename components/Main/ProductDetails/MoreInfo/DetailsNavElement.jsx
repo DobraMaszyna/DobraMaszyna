@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
-const InfoNavbar = ({ title }) => {
-  return <InfoNavbarStyled>{title}</InfoNavbarStyled>;
+const DetailsNavElement = ({ title, href }) => {
+  return (
+    <DetailsNavElementStyled href={`#${href}`}>{title}</DetailsNavElementStyled>
+  );
 };
 
-const InfoNavbarStyled = styled.button`
+const DetailsNavElementStyled = styled.a`
   width: calc(100% / 7);
   display: inline-block;
   padding: 20px;
@@ -13,8 +15,9 @@ const InfoNavbarStyled = styled.button`
   font-size: 18px;
   text-align: center;
   margin: 0 auto;
-  border-bottom: 2px solid ${(props) => props.theme.colors.purplePrimary};
   background: transparent;
+  text-decoration: none;
+  color: black;
 
   &:hover {
     background: white;
@@ -24,4 +27,4 @@ const InfoNavbarStyled = styled.button`
   }
 `;
 
-export default InfoNavbar;
+export default DetailsNavElement;

@@ -5,6 +5,7 @@ const SubcategriesList = () => {
 };
 
 const SubcategriesListStyled = styled.div`
+  position: absolute;
   width: 100%;
   padding-block: 20px;
   background-color: #fff;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import InfoSide from './InfoSide';
 
-const LeftSideInfo = ({ productName, producer }) => {
+const LeftSideInfo = ({ productName, producer, params }) => {
   return (
     <LeftSideInfoStyled className='card'>
       <img
@@ -9,7 +9,7 @@ const LeftSideInfo = ({ productName, producer }) => {
         src={`/productImages/${productName}.jpeg`}
         alt=''
       />
-      <InfoSide productName={productName} producer={producer} />
+      <InfoSide productName={productName} params={params} producer={producer} />
     </LeftSideInfoStyled>
   );
 };

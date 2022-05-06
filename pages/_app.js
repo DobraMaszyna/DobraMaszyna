@@ -12,7 +12,6 @@ import { persistStore } from 'redux-persist';
 
 import './_app.css';
 import styled from 'styled-components';
-import SearchedProducts from '../components/Navbar/SearchedProducts/Index';
 import Menu from '../components/Mobile/Menu/Index';
 
 const GlobalStyle = createGlobalStyle`
@@ -26,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
   }
 
   .card {

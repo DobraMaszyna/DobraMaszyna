@@ -1,39 +1,46 @@
 import styled from 'styled-components';
 import Description from './Description/Index';
 
-import InfoNavbar from './InfoNavbar';
+import DetailsNavElement from './DetailsNavElement';
+import Equipment from './Equipment/Index';
 import Params from './Params/Index';
+import Video from './Video/Index';
+import Recommended from './Recommended/Index';
 
 const MoreInfo = ({ productInfo }) => {
   return (
     <MoreInfoStyled>
-      <div className='nav'>
-        <InfoNavbar title={'Opis'} />
-        <InfoNavbar title={'Parametry'} />
-        <InfoNavbar title={'Wyposażenie'} />
-        <InfoNavbar title={'Polecane'} />
-        <InfoNavbar title={'Tylko dla ciebie'} />
-        <InfoNavbar title={'Wideo'} />
-        <InfoNavbar title={'Komentarze'} />
+      <div className='product-details-nav card'>
+        <DetailsNavElement title={'Opis'} href='Opis' />
+        <DetailsNavElement title={'Parametry'} href='Parametry' />
+        <DetailsNavElement title={'Wyposażenie'} href='Wyposażenie' />
+        <DetailsNavElement title={'Polecane'} href='Polecane' />
+        <DetailsNavElement title={'Tylko dla ciebie'} href='Tylko dla ciebie' />
+        <DetailsNavElement title={'Wideo'} href='Wideo' />
+        <DetailsNavElement title={'Komentarze'} href='Komentarze' />
       </div>
 
       <Description />
       <Params params={productInfo.params} />
+      <Equipment equipment={productInfo.equipment} />
+      <Video video={productInfo.video} />
+      <Recommended />
     </MoreInfoStyled>
   );
 };
 
 const MoreInfoStyled = styled.div`
-  width: 100%;
-  margin-top: 200px;
+  width: 95%;
+  margin-top: 75px;
   margin-inline: auto;
-  padding-inline: 5vmin;
-  background-color: white;
+  padding: 2rem 5vmin;
 
-  .nav {
+  .product-details-nav {
     display: flex;
     flex-direction: row;
     margin-bottom: 50px;
+    background-color: white;
+    overflow: hidden;
   }
 `;
 

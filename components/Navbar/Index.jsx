@@ -58,6 +58,7 @@ const NavbarStyled = styled.nav`
   display: flex;
   width: 100%;
   max-width: 100vw;
+  z-index: 150;
 
   .NavContainer {
     display: flex;
@@ -69,7 +70,6 @@ const NavbarStyled = styled.nav`
     padding: 0 2% 0 20%;
     background-color: #fff;
     box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.1);
-    z-index: 100;
     transition: height 0.25s ease-in-out;
 
     ul {
@@ -104,7 +104,7 @@ const NavbarStyled = styled.nav`
 
       ul {
         display: flex;
-        width: 27%;
+        width: 17%;
         justify-content: space-around;
         list-style: none;
         margin-left: auto;

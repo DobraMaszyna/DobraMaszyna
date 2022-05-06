@@ -1,14 +1,22 @@
 import styled from 'styled-components';
 import ParamsRow from './ParamsRow';
 
-const Params = ({ params }) => {
+const Params = ({ params, short }) => {
   return (
-    <ParamsSection className='cart'>
-      <h1>Parametry:</h1>
+    <ParamsSection
+      id={`${!short && 'Parametry '}`}
+      className={`${!short && 'card'}`}
+      short={short}>
+      {!short && <h1>Parametry:</h1>}
+
       <table>
-        {Object.entries(params).map(([key, value]) => (
-          <ParamsRow title={key} value={value} />
-        ))}
+        {Object.entries(params).map(([key, value], index) => {
+          if (short && index < 5 && index !== 0) {
+            return <ParamsRow title={key} value={value} />;
+          } else if (!short) {
+            return <ParamsRow title={key} value={value} />;
+          }
+        })}
       </table>
     </ParamsSection>
   );
@@ -17,12 +25,12 @@ const Params = ({ params }) => {
 const ParamsSection = styled.section`
   margin-inline: auto;
   margin-block: 50px;
-  width: 80vmin;
-  padding: 20px;
-  background: white;
+  width: ${({ short }) => (short ? '100%' : '80vmin')};
+  padding: ${({ short }) => (short ? '0' : '50px')};
+  background: ${({ short }) => (short ? 'transparent' : 'white')};
 
   h1 {
-    margin-block: 20px;
+    margin-bottom: 20px;
   }
 
   table {

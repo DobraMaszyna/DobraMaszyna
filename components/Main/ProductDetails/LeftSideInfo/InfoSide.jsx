@@ -1,28 +1,17 @@
 import styled from 'styled-components';
+import Params from '../MoreInfo/Params/Index';
 import CustomButton from './CustomButton';
 
-const InfoSide = ({
-  productName,
-  producer,
-  productId,
-  productFooters,
-  productType,
-  productPower,
-}) => {
+const InfoSide = ({ productName, producer, params }) => {
   return (
     <InfoSideStyled>
       <h1 className='productName'>{productName}</h1>
       <p className='productProducer'>{producer}</p>
-      <p className='productId'>Kod produktu:{productId}</p>
-      <p className='footers'>Ilość stopek w zestawie: {productFooters}</p>
-      <p className='type'>Rodzaj maszyny{productType}</p>
-      <p className='power'>Pobór mocy: {productPower}w</p>
-      <h3>Warianty</h3>
-      <ul>
-        <CustomButton BtnImg={`/productImages/${productName}.jpeg`} />
-        <CustomButton BtnImg={`/productImages/${productName}.jpeg`} />
-        <CustomButton BtnImg={`/productImages/${productName}.jpeg`} />
-      </ul>
+
+      <div className='props-shortcut'>
+        <Params params={params} short={true} />
+        <a href='#Parametry'>Zobacz pełne paramentry</a>
+      </div>
     </InfoSideStyled>
   );
 };
@@ -40,11 +29,41 @@ const InfoSideStyled = styled.div`
   }
 
   .productName {
-    font-size: 29px;
+    font-size: 2vw;
   }
 
   .productProducer {
-    font-size: 18px;
+    font-size: 1.2vw;
+  }
+
+  .props-shortcut {
+    position: relative;
+
+    a {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 75%;
+      padding-block: 5px;
+      transform: translateX(-50%);
+      z-index: 100;
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+
+  .props-shortcut:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, transparent, white, white);
+    z-index: 1;
   }
 
   @media only screen and (min-width: 768px) {

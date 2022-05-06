@@ -51,6 +51,7 @@ const PaymentStyled = styled.div`
 
   @media (min-width: 768px) {
     width: 20%;
+    min-width: 300px;
     padding: 50px;
 
     ul {

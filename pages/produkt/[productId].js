@@ -13,6 +13,7 @@ const ProductPage = ({ productInfo }) => {
         <LeftSideInfo
           productName={productInfo.name}
           producer={productInfo.producer}
+          params={productInfo.params}
         />
         <RightSideInfo
           price={productInfo.price}
