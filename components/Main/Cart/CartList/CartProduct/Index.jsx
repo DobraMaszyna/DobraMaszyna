@@ -14,7 +14,6 @@ const CartProduct = ({ name, producer, price, priceBefore, pid }) => {
   return (
     <CartProductStyled>
       <img className='prodImg' src={`/productImages/${name}.jpeg`} alt='' />
-
       <div>
         <h1 className='cartProdName'>{name}</h1>
         <h2 className='cartProdProducer'>{producer}</h2>
@@ -29,15 +28,15 @@ const CartProduct = ({ name, producer, price, priceBefore, pid }) => {
           <Price price={price} priceBefore={priceBefore} />
         </div>
         <CartSelectQuantity />
-        <motion.img
-          className='delete'
-          src='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
-          alt=''
-          onClick={() => dispatch(removeProduct(pid))}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        />
       </div>
+      <motion.img
+        className='delete'
+        src='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
+        alt=''
+        onClick={() => dispatch(removeProduct(pid))}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      />
     </CartProductStyled>
   );
 };

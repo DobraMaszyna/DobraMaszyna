@@ -4,7 +4,7 @@ const ProducerList = ({ producersList }) => {
   return (
     <ProducerListStyled>
       {producersList.map(({ name }) => (
-        <img src={`/producers-img/${name}-logo.png`} id={`${name}-logo.png`} />
+        <img src={`/producers-img/${name}-logo.png`} />
       ))}
     </ProducerListStyled>
   );
@@ -13,9 +13,11 @@ const ProducerList = ({ producersList }) => {
 const ProducerListStyled = styled.ul`
   display: flex;
   flex-direction: column;
+  padding-right: 10vmin;
+  border-right: 1px solid ${({ theme }) => theme.colors.purplePrimary};
 
   img {
-    height: 50px;
+    height: 40px;
     width: fit-content;
     margin-block: 20px;
   }

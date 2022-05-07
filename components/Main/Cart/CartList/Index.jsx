@@ -34,7 +34,7 @@ const CartListStyled = styled.ul`
   display: flex;
   flex-direction: column;
   width: 80%;
-  min-height: 40vh;
+  min-height: 60vh;
   margin-top: 70px;
   margin-right: auto;
   margin-left: auto;

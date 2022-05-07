@@ -22,7 +22,8 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
     "stripe": "^8.220.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "swiper": "^8.1.4"
   },
   "proxy": "http://localhost:3000"
 }
