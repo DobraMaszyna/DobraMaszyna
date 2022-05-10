@@ -15,7 +15,6 @@ const ProducerListStyled = styled.ul`
   flex-direction: column;
   padding-right: 10vmin;
   border-right: 1px solid ${({ theme }) => theme.colors.purplePrimary};
-
   img {
     height: 40px;
     width: fit-content;

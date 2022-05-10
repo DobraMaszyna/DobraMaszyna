@@ -48,7 +48,7 @@ const SearchedProducts = ({ defaultNavState }) => {
 };
 
 const SearchedProductsStyled = styled.div`
-  position: absolute;
+  position: fixed;
   width: 90vmin;
   left: 50%;
   transform: translateX(-50%);
@@ -57,8 +57,8 @@ const SearchedProductsStyled = styled.div`
   text-align: center;
   z-index: 90;
   background: white;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   padding-inline: 10vmin;
   padding-top: 35px;
 

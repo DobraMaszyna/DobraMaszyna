@@ -7,11 +7,13 @@ import storage from 'redux-persist/lib/storage';
 import cart from './cart';
 import searchQuery from './searchQuery';
 import menu from './menu';
+import recentlyViewed from './recentlyViewed';
 
 const reducers = combineReducers({
   cart,
   searchQuery,
   menu,
+  recentlyViewed,
 });
 
 const persistConfig = {

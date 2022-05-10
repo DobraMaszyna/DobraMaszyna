@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import { removeProduct } from '../../../../../redux/cart';
 
-import CartActionBtn from './CartActionBtn';
+import SmallActionBtn from '../../../../../lib/components/SmallActionBtn';
 import Price from '../../../../../lib/components/Price';
 import CartSelectQuantity from './CartSelectQuantity';
 
@@ -19,8 +19,8 @@ const CartProduct = ({ name, producer, price, priceBefore, pid }) => {
         <h2 className='cartProdProducer'>{producer}</h2>
 
         <div className='ActionBtnContainer'>
-          <CartActionBtn icon='https://img.icons8.com/dotty/80/7D7D7D/like.png' />
-          <CartActionBtn icon='https://img.icons8.com/dotty/80/7D7D7D/scales.png' />
+          <SmallActionBtn icon='https://img.icons8.com/dotty/80/7D7D7D/like.png' />
+          <SmallActionBtn icon='https://img.icons8.com/dotty/80/7D7D7D/scales.png' />
         </div>
       </div>
       <div className='PaymantContainer'>

@@ -17,7 +17,7 @@ const SearchBar = () => {
       />
 
       <SearchBtnStyled>
-        <img src='https://img.icons8.com/dotty/80/C5C5C5/search.png' />
+        <img src='https://img.icons8.com/ios-filled/50/ffffff/search--v1.png' />
       </SearchBtnStyled>
     </SearchbarStyled>
   );
@@ -54,11 +54,15 @@ const SearchBtnStyled = styled.button`
   border-radius: 0 66px 66px 0;
   width: 45px;
   height: 35px;
-  background-color: transparent;
+  background-color: ${(props) => props.theme.colors.purplePrimary};
 
   img {
-    width: 26px;
+    width: 22px;
     margin: auto;
+  }
+
+  &:hover {
+    background: #a2a7f2;
   }
 `;
 

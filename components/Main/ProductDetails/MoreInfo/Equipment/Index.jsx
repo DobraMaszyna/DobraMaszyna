@@ -5,9 +5,7 @@ const Equipment = ({ equipment }) => {
   return (
     <EquipmentStyled id='Wyposażenie' className='card'>
       <h1>Wyposażenie:</h1>
-      {equipment.map((elem) => (
-        <EquipmentElement text={elem} />
-      ))}
+      {equipment && equipment.map((elem) => <EquipmentElement text={elem} />)}
     </EquipmentStyled>
   );
 };

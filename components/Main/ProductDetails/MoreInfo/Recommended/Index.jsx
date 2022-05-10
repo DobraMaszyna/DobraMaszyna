@@ -1,22 +1,52 @@
 import styled from 'styled-components';
-import RecomendetProduct from './RecomendetProduct';
+import Product from '../../../../../lib/components/Product';
 
 const Recommended = ({ recommended }) => {
   return (
     <RecommendedStyled id='Polecane' className='card'>
       <h1>Polecane</h1>
       <ul>
-        <RecomendetProduct
+        <Product
           productName='bernette Sew&Go 5'
           price={2222}
           productProducer='BERNINA AG'
         />
-        <RecomendetProduct
+        <Product
           productName='bernette Sew&Go 5'
           price={2222}
           productProducer='BERNINA AG'
         />
-        <RecomendetProduct
+        <Product
+          productName='bernette Sew&Go 5'
+          price={2222}
+          productProducer='BERNINA AG'
+        />
+        <Product
+          productName='bernette Sew&Go 5'
+          price={2222}
+          productProducer='BERNINA AG'
+        />
+        <Product
+          productName='bernette Sew&Go 5'
+          price={2222}
+          productProducer='BERNINA AG'
+        />
+        <Product
+          productName='bernette Sew&Go 5'
+          price={2222}
+          productProducer='BERNINA AG'
+        />
+        <Product
+          productName='bernette Sew&Go 5'
+          price={2222}
+          productProducer='BERNINA AG'
+        />
+        <Product
+          productName='bernette Sew&Go 5'
+          price={2222}
+          productProducer='BERNINA AG'
+        />
+        <Product
           productName='bernette Sew&Go 5'
           price={2222}
           productProducer='BERNINA AG'
@@ -31,7 +61,9 @@ const RecommendedStyled = styled.section`
   margin-block: 50px;
   width: 100%;
   padding: 50px;
+  padding-right: 0;
   background: white;
+  overflow-x: scroll;
 
   h1 {
     margin-bottom: 40px;
@@ -42,6 +74,7 @@ const RecommendedStyled = styled.section`
     flex-direction: row;
     list-style: none;
     justify-content: space-around;
+    margin-left: 50px;
   }
 `;
 

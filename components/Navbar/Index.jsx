@@ -34,7 +34,6 @@ const Navbar = () => {
     <NavbarStyled defaultNavState={defaultNavState}>
       <div className='NavContainer'>
         <SearchBar />
-
         <ul>
           <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/scales.png' />
           <Link href='/cart'>
@@ -57,20 +56,19 @@ const NavbarStyled = styled.nav`
   position: fixed;
   display: flex;
   width: 100%;
-  max-width: 100vw;
   z-index: 150;
+  position: relative;
 
   .NavContainer {
+    z-index: 150;
     display: flex;
     align-items: center;
-    flex-direction: wrap;
     justify-content: space-between;
     width: 100%;
     height: ${(props) => (props.defaultNavState ? '75px' : '58px')};
-    padding: 0 2% 0 20%;
-    background-color: #fff;
     box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.1);
     transition: height 0.25s ease-in-out;
+    background-color: #fff;
 
     ul {
       width: 40%;

@@ -1,14 +1,30 @@
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { addProduct, removeProduct } from '../../../../redux/cart';
 
 import Price from '../../../../lib/components/Price';
 import Availability from '../../../../lib/components/Availability';
 import Delivery from './Delivery';
 import ActionBtn from '../../../../lib/components/ActionBtn';
 
-const RightSideInfo = ({ price, priceBefore }) => {
+const RightSideInfo = ({ product }) => {
+  const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.cart.cart);
+
+  const [isInCart, setIsInCart] = useState(false);
+
+  useEffect(() => {
+    cartProducts.filter((prod) => prod._id === product._id).length === 0
+      ? setIsInCart(false)
+      : setIsInCart(true);
+  }, [cartProducts]);
+
   return (
     <PaymentStyled className='card'>
-      <Price price={price} priceBefore={priceBefore} />
+      <Price price={product.price} priceBefore={product.priceBefore} />
       <Availability
         title='Dostępny'
         icon='https://img.icons8.com/dotty/80/2ecc71/ok.png'
@@ -23,12 +39,27 @@ const RightSideInfo = ({ price, priceBefore }) => {
           icon='https://img.icons8.com/dotty/80/C6C9F8/delivery.png'
         />
       </ul>
-      <ActionBtn
-        style={{ margin: '5px auto', width: '90%' }}
-        title='Do koszyka'
-        btnClass='purple'
-        icon='https://img.icons8.com/dotty/80/ffffff/shopping-cart.png'
-      />
+      {isInCart ? (
+        <ActionBtn
+          onClick={() => dispatch(removeProduct(product._id))}
+          style={{
+            color: '#ff5757',
+            margin: '5px auto',
+            width: '90%',
+          }}
+          title='Usuń z koszyka'
+          btnClass='silver'
+          icon='https://img.icons8.com/dotty/80/ff5757/filled-trash.png'
+        />
+      ) : (
+        <ActionBtn
+          onClick={() => dispatch(addProduct(product))}
+          style={{ margin: '5px auto', width: '90%' }}
+          title='Do koszyka'
+          btnClass='purple'
+          icon='https://img.icons8.com/external-icongeek26-outline-icongeek26/64/ffffff/external-cart-ecommerce-icongeek26-outline-icongeek26.png'
+        />
+      )}
       <ActionBtn
         style={{ margin: '5px auto', width: '90%' }}
         title='Polub'

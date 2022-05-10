@@ -10,13 +10,14 @@ const Params = ({ params, short }) => {
       {!short && <h1>Parametry:</h1>}
 
       <table>
-        {Object.entries(params).map(([key, value], index) => {
-          if (short && index < 5 && index !== 0) {
-            return <ParamsRow title={key} value={value} />;
-          } else if (!short) {
-            return <ParamsRow title={key} value={value} />;
-          }
-        })}
+        {params &&
+          Object.entries(params).map(([key, value], index) => {
+            if (short && index < 5 && index !== 0) {
+              return <ParamsRow title={key} value={value} />;
+            } else if (!short) {
+              return <ParamsRow title={key} value={value} />;
+            }
+          })}
       </table>
     </ParamsSection>
   );

@@ -3,12 +3,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import { Pagination } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import styled from 'styled-components';
 
 const SlideShow = () => {
   return (
-    <Swiper pagination={true} modules={[Pagination]}>
+    <Swiper
+      navigation
+      pagination={{ clickable: true }}
+      modules={[Pagination, Navigation]}>
       <SwiperSlide>
         <SliderImage src='/slide-show/1.jpg' />
       </SwiperSlide>
@@ -29,9 +32,9 @@ const SlideShow = () => {
 };
 
 const SliderImage = styled.img`
-  border-radius: 30px;
   width: 100%;
-  height: 90%;
+  height: 100%;
+  margin: auto;
   object-fit: cover;
 `;
 
