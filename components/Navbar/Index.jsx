@@ -57,18 +57,18 @@ const NavbarStyled = styled.nav`
   display: flex;
   width: 100%;
   z-index: 150;
-  position: relative;
+  height: ${(props) => (props.defaultNavState ? '75px' : '58px')};
+  box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.1);
+  transition: height 0.25s ease-in-out;
+  background-color: #fff;
 
   .NavContainer {
+    position: relative;
     z-index: 150;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
-    height: ${(props) => (props.defaultNavState ? '75px' : '58px')};
-    box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.1);
-    transition: height 0.25s ease-in-out;
-    background-color: #fff;
+    height: 100%;
 
     ul {
       width: 40%;
@@ -77,10 +77,6 @@ const NavbarStyled = styled.nav`
       justify-content: space-around;
       list-style: none;
       margin-left: auto;
-    }
-
-    div:first-child {
-      transform: translateX(-95%);
     }
 
     .bars {
