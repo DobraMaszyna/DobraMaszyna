@@ -1,13 +1,23 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 import styled from 'styled-components';
 
 import CategoryElement from './CategoryElement';
 import SubcategoriesList from './SubcategoriesList/Index';
 
+import {
+  maszynyDomoweSubcategories,
+  // maszynyPrzemysloweSubcategories,
+  // hafciarkiSubcategories,
+  // prasowanieSubcategories,
+  // aksesoriaSubcategories,
+  // czesciZamienneSubcategories,
+  // stefaPromocjiZamienneSubcategories,
+} from '../../../DUMMY_DATA/subcategories';
+
 const CategoryList = () => {
   const [isOverElement, setIsOverElement] = useState(false);
+  const [subcategories, setSubcategories] = useState({});
 
   const hoverElementHandler = () => setIsOverElement(!isOverElement);
 
@@ -20,47 +30,51 @@ const CategoryList = () => {
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/cottage.png'
               title='Maszyny Domowe'
               href='maszyny-domowe'
-              hoverHandler={hoverElementHandler}
+              hoverHandler={() => setSubcategories(maszynyDomoweSubcategories)}
             />
-            <CategoryElement
+            {/* <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/factory.png'
               title='Maczyny Przemysłowe'
               href='maszyny-przemyslowe'
-              hoverHandler={hoverElementHandler}
+              hoverHandler={() =>
+                setSubcategories(maszynyPrzemysloweSubcategories)
+              }
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-machine.png'
               title='Hafciarki'
               href='hafciarki'
-              hoverHandler={hoverElementHandler}
+              hoverHandler={() => setSubcategories(hafciarkiSubcategories)}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/ironing.png'
               title='Prasowanie'
               href='prasowanie'
-              hoverHandler={hoverElementHandler}
+              hoverHandler={() => setSubcategories(prasowanieSubcategories)}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/pin-cushion.png'
               title='Akcesoria'
               href='akcesoria'
-              hoverHandler={hoverElementHandler}
+              hoverHandler={() => setSubcategories(aksesoriaSubcategories)}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-button.png'
               title='Części Zamienne'
               href='czesci-zamienne'
-              hoverHandler={hoverElementHandler}
+              hoverHandler={() => setSubcategories(czesciZamienneSubcategories)}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/discount.png'
               title='Promocje'
               href='promocje'
-              hoverHandler={hoverElementHandler}
-            />
+              hoverHandler={() =>
+                setSubcategories(stefaPromocjiZamienneSubcategories)
+              }
+            /> */}
           </ul>
         </div>
-        {isOverElement && <SubcategoriesList />}
+        {isOverElement && <SubcategoriesList subcategories={subcategories} />}
       </CategoryContainerStyled>
     </>
   );

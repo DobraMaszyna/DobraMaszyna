@@ -1,17 +1,17 @@
+import './_app.css';
+import styled from 'styled-components';
+
 import Head from 'next/head';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { Provider, useSelector } from 'react-redux';
 import store from '../redux/store';
-
-import Navbar from '../components/Navbar/Index';
-import CategoryList from '../components/CategoryList/Index';
+import { Provider } from 'react-redux';
 
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 
-import './_app.css';
-import styled from 'styled-components';
+import Navbar from '../components/Navbar/Index';
+import CategoryList from '../components/CategoryList/Index';
 import Menu from '../components/Mobile/Menu/Index';
 
 const GlobalStyle = createGlobalStyle`
@@ -60,7 +60,7 @@ const theme = {
   },
 };
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, subcategories }) {
   let persistor = persistStore(store);
 
   return (
@@ -73,7 +73,7 @@ export default function App({ Component, pageProps }) {
           </Head>
 
           <Navbar />
-          <CategoryList />
+          <CategoryList subcategories={subcategories} />
           <Menu />
 
           <AppContainer>

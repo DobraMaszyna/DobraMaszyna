@@ -1,18 +1,14 @@
 import styled from 'styled-components';
+
 import SubcategorySection from './SubcategorySection';
 
-const SubcategriesList = () => {
+const SubcategriesList = ({ subcategories }) => {
   return (
     <SubcategriesListStyled>
-      <SubcategorySection
-        title='STĘBNOWKI'
-        subcategories={[
-          'z-pojedynczym-transportem',
-          'z-podwojnym-transportem',
-          'z-potrojnym-transportem',
-          '2-iglowe',
-        ]}
-      />
+      {subcategories.map((el) => (
+        <SubcategorySection title={el.name} subcategories={el.categories} />
+      ))}
+
       <SubcategorySection
         title='OWERLOKI'
         subcategories={['3-nitkowe', '4-nitkowe', '5-nitkowe']}

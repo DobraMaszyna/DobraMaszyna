@@ -33,7 +33,7 @@ const SubcategorySectionStyled = styled.div`
     margin-block: 2px;
   }
 
-  li:nth-child(n/5) {
+  li:nth-child(5n + 5) {
     background-color: blue;
   }
 `;
