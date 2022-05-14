@@ -3,24 +3,17 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import CategoryElement from './CategoryElement';
-import SubcategoriesList from './SubcategoriesList/Index';
-
 import {
   maszynyDomoweSubcategories,
-  // maszynyPrzemysloweSubcategories,
-  // hafciarkiSubcategories,
-  // prasowanieSubcategories,
-  // aksesoriaSubcategories,
-  // czesciZamienneSubcategories,
-  // stefaPromocjiZamienneSubcategories,
-} from '../../../DUMMY_DATA/subcategories';
+  maszynyPrzemysloweSubcategories,
+  hafciarkiSubcategories,
+  prasowanieSubcategories,
+  aksesoriaSubcategories,
+  czesciZamienneSubcategories,
+  stefaPromocjiZamienneSubcategories,
+} from '../../DUMMY_DATA/subcategories';
 
 const CategoryList = () => {
-  const [isOverElement, setIsOverElement] = useState(false);
-  const [subcategories, setSubcategories] = useState({});
-
-  const hoverElementHandler = () => setIsOverElement(!isOverElement);
-
   return (
     <>
       <CategoryContainerStyled>
@@ -30,51 +23,46 @@ const CategoryList = () => {
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/cottage.png'
               title='Maszyny Domowe'
               href='maszyny-domowe'
-              hoverHandler={() => setSubcategories(maszynyDomoweSubcategories)}
+              subcategories={maszynyDomoweSubcategories}
             />
-            {/* <CategoryElement
+            <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/factory.png'
               title='Maczyny Przemysłowe'
               href='maszyny-przemyslowe'
-              hoverHandler={() =>
-                setSubcategories(maszynyPrzemysloweSubcategories)
-              }
+              subcategories={maszynyPrzemysloweSubcategories}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-machine.png'
               title='Hafciarki'
               href='hafciarki'
-              hoverHandler={() => setSubcategories(hafciarkiSubcategories)}
+              subcategories={hafciarkiSubcategories}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/ironing.png'
               title='Prasowanie'
               href='prasowanie'
-              hoverHandler={() => setSubcategories(prasowanieSubcategories)}
+              subcategories={prasowanieSubcategories}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/pin-cushion.png'
               title='Akcesoria'
               href='akcesoria'
-              hoverHandler={() => setSubcategories(aksesoriaSubcategories)}
+              subcategories={aksesoriaSubcategories}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-button.png'
               title='Części Zamienne'
               href='czesci-zamienne'
-              hoverHandler={() => setSubcategories(czesciZamienneSubcategories)}
+              subcategories={czesciZamienneSubcategories}
             />
             <CategoryElement
               imgSrc='https://img.icons8.com/dotty/80/7E7E80/discount.png'
               title='Promocje'
               href='promocje'
-              hoverHandler={() =>
-                setSubcategories(stefaPromocjiZamienneSubcategories)
-              }
-            /> */}
+              subcategories={stefaPromocjiZamienneSubcategories}
+            />
           </ul>
         </div>
-        {isOverElement && <SubcategoriesList subcategories={subcategories} />}
       </CategoryContainerStyled>
     </>
   );
@@ -85,19 +73,22 @@ const CategoryContainerStyled = styled.div`
     width: 100%;
     height: 150px;
     background: white;
-    padding-top: 90px;
+    padding-top: 75px;
     z-index: 90;
     box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.1);
 
     ul {
       display: flex;
+      align-items: center;
       justify-content: space-around;
+      height: 100%;
       width: 100%;
       padding: 0 50px;
       z-index: 90;
     }
   }
 
+  //fixme: mobilefirst
   @media (max-width: 768px) {
     .CategoryList {
       display: none;

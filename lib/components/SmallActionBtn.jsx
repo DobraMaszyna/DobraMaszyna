@@ -21,7 +21,7 @@ const SmallActionBtnStyled = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     height: 60%;
-    width: fit-content;
+    width: auto;
   }
 `;
 
