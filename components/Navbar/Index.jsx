@@ -33,7 +33,16 @@ const Navbar = () => {
   return (
     <NavbarStyled defaultNavState={defaultNavState}>
       <div className='NavContainer'>
+        <Link href='/'>
+          <a>
+            <h1 className='logo'>Logo312</h1>
+          </a>
+        </Link>
         <SearchBar />
+        <button className='search'>
+          <p>Wyszukaj</p>
+          <img src='https://img.icons8.com/dotty/80/000000/search.png' />
+        </button>
         <ul>
           <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/scales.png' />
           <Link href='/cart'>
@@ -64,31 +73,54 @@ const NavbarStyled = styled.nav`
 
   .NavContainer {
     position: relative;
-    z-index: 150;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    z-index: 150;
     width: 100%;
     height: 100%;
+    padding-inline: 5vmin;
+
+    div {
+      display: none;
+    }
 
     ul {
-      width: 40%;
-      transform: translateX(-10%);
+      width: 30%;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       list-style: none;
-      margin-left: auto;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      background-color: transparent;
+      margin-left: 30px;
+      border: none;
+
+      img {
+        width: 100%;
+      }
     }
 
     .bars {
       display: block;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       background-color: transparent;
       border: none;
+
+      img {
+        width: 100%;
+      }
     }
 
-    .bars img {
-      width: 100%;
+    a {
+      text-decoration: none;
+      color: black;
     }
 
     @media (min-width: 768px) {
@@ -96,11 +128,16 @@ const NavbarStyled = styled.nav`
         display: none;
       }
 
-      ul {
+      .search {
+        display: none;
+      }
+
+      div:nth-child(2) {
         display: flex;
+      }
+
+      ul {
         width: 17%;
-        justify-content: space-around;
-        list-style: none;
         margin-left: auto;
       }
     }

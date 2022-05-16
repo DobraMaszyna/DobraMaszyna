@@ -17,7 +17,7 @@ const SearchBar = () => {
       />
 
       <SearchBtnStyled>
-        <img src='https://img.icons8.com/ios-filled/50/ffffff/search--v1.png' />
+        <img src='https://img.icons8.com/dotty/80/000000/search.png' />
       </SearchBtnStyled>
     </SearchbarStyled>
   );
