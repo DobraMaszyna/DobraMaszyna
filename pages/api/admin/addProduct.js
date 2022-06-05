@@ -28,10 +28,13 @@ export default async (req, res) => {
         name: fields.name,
         producer: fields.producer,
         popularity: 0,
-        category: fields.category,
-        subcategory: fields.subcategory,
-        equipment: fields.equipment,
-        props: fields.props,
+        category: {
+          parent: fields.parent,
+          category: fields.category,
+          child: fields.child,
+        },
+        equipment: fields.equipment.split('-'),
+        params: JSON.parse(fields.params),
       });
 
       mv(oldPath, newPath, function (err) {});
