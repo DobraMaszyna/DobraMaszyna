@@ -5,10 +5,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeState } from '../../../redux/menu';
 
 import MenuCategoryElement from './MenuCategoryElement';
+import {
+  maszynyDomoweSubcategories,
+  maszynyPrzemysloweSubcategories,
+  hafciarkiSubcategories,
+  prasowanieSubcategories,
+  aksesoriaSubcategories,
+  czesciZamienneSubcategories,
+  stefaPromocjiZamienneSubcategories,
+} from '../../../DUMMY_DATA/subcategories';
 
 const Menu = () => {
-  const menuState = useSelector((state) => state.menu.shown);
   const dispatch = useDispatch();
+
+  const menuState = useSelector((state) => state.menu.shown);
 
   return (
     <>
@@ -32,36 +42,43 @@ const Menu = () => {
                 imgSrc='https://img.icons8.com/dotty/80/7E7E80/cottage.png'
                 title='Maszyny Domowe'
                 href='maszyny-domowe'
+                subcategories={maszynyDomoweSubcategories}
               />
               <MenuCategoryElement
                 imgSrc='https://img.icons8.com/dotty/80/7E7E80/factory.png'
                 title='Maczyny Przemysłowe'
                 href='maszyny-przemyslowe'
+                subcategories={maszynyPrzemysloweSubcategories}
               />
               <MenuCategoryElement
                 imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-machine.png'
                 title='Hafciarki'
                 href='hafciarki'
+                subcategories={hafciarkiSubcategories}
               />
               <MenuCategoryElement
                 imgSrc='https://img.icons8.com/dotty/80/7E7E80/ironing.png'
                 title='Prasowanie'
                 href='prasowanie'
+                subcategories={prasowanieSubcategories}
               />
               <MenuCategoryElement
                 imgSrc='https://img.icons8.com/dotty/80/7E7E80/pin-cushion.png'
                 title='Akcesoria'
                 href='akcesoria'
+                subcategories={aksesoriaSubcategories}
               />
               <MenuCategoryElement
                 imgSrc='https://img.icons8.com/dotty/80/7E7E80/sewing-button.png'
                 title='Części Zamienne'
                 href='czesci-zamienne'
+                subcategories={czesciZamienneSubcategories}
               />
               <MenuCategoryElement
                 imgSrc='https://img.icons8.com/dotty/80/7E7E80/discount.png'
                 title='Promocje'
                 href='promocje'
+                subcategories={stefaPromocjiZamienneSubcategories}
               />
             </ul>
           </motion.div>

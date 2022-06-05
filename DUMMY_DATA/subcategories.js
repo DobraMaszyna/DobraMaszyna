@@ -26,8 +26,8 @@ export const maszynyPrzemysloweSubcategories = [
     name: 'Stębnówki',
     categories: [
       'Z pojedynczym transportem',
-      'Z podwójny transportem',
-      'Z potrójny transportem',
+      'Z podwójnym transportem',
+      'Z potrójnym transportem',
       '2-igłowe',
     ],
   },

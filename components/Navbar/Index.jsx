@@ -4,17 +4,21 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import SearchBar from './SearchBar';
-import NavIcon from './NavIcon';
+import NavElement from './NavElement';
 import SearchedProducts from './SearchedProducts/Index';
 
 import { useDispatch } from 'react-redux';
 import { changeState } from '../../redux/menu';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
   const [scrollY, setScrollY] = useState(0);
   const [defaultNavState, setDefaultNavState] = useState(true);
 
-  const dispatch = useDispatch();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+  const [isOverResult, setIsOverResult] = useState(false);
 
   if (typeof window !== 'undefined') {
     window.addEventListener('scroll', () => {
@@ -30,34 +34,68 @@ const Navbar = () => {
     }
   }, [scrollY]);
 
+  //---Handlers---
+
+  const searchQueryHandler = (query) => {
+    setSearchQuery(query);
+  };
+
+  const inputFocusHandler = () => {
+    setIsFocused(!isFocused);
+  };
+
+  const mouseHoverHandler = () => {
+    setIsOverResult(!isOverResult);
+  };
+
   return (
-    <NavbarStyled defaultNavState={defaultNavState}>
-      <div className='NavContainer'>
-        <Link href='/'>
-          <a>
-            <h1 className='logo'>Logo312</h1>
-          </a>
-        </Link>
-        <SearchBar />
-        <button className='search'>
-          <p>Wyszukaj</p>
-          <img src='https://img.icons8.com/dotty/80/000000/search.png' />
-        </button>
-        <ul>
-          <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/scales.png' />
-          <Link href='/cart'>
+    <>
+      <NavbarStyled defaultNavState={defaultNavState}>
+        <div className='NavContainer'>
+          <Link href='/'>
             <a>
-              <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/shopping-cart.png' />
+              <h1 className='logo'>Logo312</h1>
             </a>
           </Link>
-          <NavIcon imgSrc='https://img.icons8.com/dotty/80/000000/like.png' />
-        </ul>
-        <button className='bars' onClick={() => dispatch(changeState())}>
-          <img src='https://img.icons8.com/dotty/80/000000/menu-rounded.png' />
-        </button>
-      </div>
-      <SearchedProducts defaultNavState={defaultNavState} />
-    </NavbarStyled>
+          <SearchBar
+            onInputFocus={inputFocusHandler}
+            changeSearchQuery={searchQueryHandler}
+          />
+          <button className='search'>
+            <p>Wyszukaj</p>
+            <img src='https://img.icons8.com/dotty/80/000000/search.png' />
+          </button>
+          <ul>
+            <Link href='/koszyk'>
+              <a>
+                <NavElement
+                  title='Koszyk'
+                  imgSrc='https://img.icons8.com/dotty/80/000000/shopping-cart.png'
+                />
+              </a>
+            </Link>
+            <Link href='/polubione'>
+              <a>
+                <NavElement
+                  title='Polubione'
+                  imgSrc='https://img.icons8.com/dotty/80/000000/like.png'
+                />
+              </a>
+            </Link>
+          </ul>
+          <button className='bars' onClick={() => dispatch(changeState())}>
+            <img src='https://img.icons8.com/dotty/80/000000/menu-rounded.png' />
+          </button>
+        </div>
+      </NavbarStyled>
+      {isFocused || isOverResult ? (
+        <SearchedProducts
+          searchQuery={searchQuery}
+          defaultNavState={defaultNavState}
+          onMouseHover={mouseHoverHandler}
+        />
+      ) : null}
+    </>
   );
 };
 
@@ -137,7 +175,7 @@ const NavbarStyled = styled.nav`
       }
 
       ul {
-        width: 17%;
+        width: 12%;
         margin-left: auto;
       }
     }

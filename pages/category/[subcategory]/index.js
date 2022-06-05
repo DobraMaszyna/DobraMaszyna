@@ -1,7 +1,7 @@
-import Aside from '../components/Aside/Index';
-import Main from '../components/Main/Index';
+import Aside from '../../../components/Aside/Index';
+import Main from '../../../components/Main/Index';
 
-import getProducts from '../lib/api/getProductList';
+import getProducts from '../../../lib/api/getProductList';
 
 const CategoryPage = ({ productList }) => {
   return (
@@ -18,157 +18,157 @@ export const getStaticPaths = () => {
     paths: [
       {
         params: {
-          category: 'maszyny-do-szycia',
+          subcategory: 'maszyny-do-szycia',
         },
       },
       {
         params: {
-          category: 'owerlocki',
+          subcategory: 'owerlocki',
         },
       },
       {
         params: {
-          category: 'renderki',
+          subcategory: 'renderki',
         },
       },
       {
         params: {
-          category: 'coverlocki',
+          subcategory: 'coverlocki',
         },
       },
       {
         params: {
-          category: 'hafciarki',
+          subcategory: 'hafciarki',
         },
       },
       {
         params: {
-          category: 'stebniowki',
+          subcategory: 'stebniowki',
         },
       },
       {
         params: {
-          category: 'owerlocki',
+          subcategory: 'owerlocki',
         },
       },
       {
         params: {
-          category: 'renderki',
+          subcategory: 'renderki',
         },
       },
       {
         params: {
-          category: 'specjalistyczne',
+          subcategory: 'specjalistyczne',
         },
       },
       {
         params: {
-          category: 'jedno-iglowe',
+          subcategory: 'jedno-iglowe',
         },
       },
       {
         params: {
-          category: 'multihafciarki',
+          subcategory: 'multihafciarki',
         },
       },
       {
         params: {
-          category: 'wieloiglowe',
+          subcategory: 'wieloiglowe',
         },
       },
       {
         params: {
-          category: 'wieloiglowicowe',
+          subcategory: 'wieloiglowicowe',
         },
       },
       {
         params: {
-          category: 'stoly-prasowalnicze',
+          subcategory: 'stoly-prasowalnicze',
         },
       },
       {
         params: {
-          category: 'wytwornice-pary',
+          subcategory: 'wytwornice-pary',
         },
       },
       {
         params: {
-          category: 'termopodklejarki',
+          subcategory: 'termopodklejarki',
         },
       },
       {
         params: {
-          category: 'specjalistyczne',
+          subcategory: 'specjalistyczne',
         },
       },
       {
         params: {
-          category: 'igly',
+          subcategory: 'igly',
         },
       },
       {
         params: {
-          category: 'stopki',
+          subcategory: 'stopki',
         },
       },
       {
         params: {
-          category: 'nici',
+          subcategory: 'nici',
         },
       },
       {
         params: {
-          category: 'dodatki-do-szycia',
+          subcategory: 'dodatki-do-szycia',
         },
       },
       {
         params: {
-          category: 'dodatki-do-haftowania',
+          subcategory: 'dodatki-do-haftowania',
         },
       },
       {
         params: {
-          category: 'dodatki-do-ploterow',
+          subcategory: 'dodatki-do-ploterow',
         },
       },
       {
         params: {
-          category: 'dodatki-do-rysowania-i-wyciniania',
+          subcategory: 'dodatki-do-rysowania-i-wyciniania',
         },
       },
       {
         params: {
-          category: 'do-maszyn-domowych',
+          subcategory: 'do-maszyn-domowych',
         },
       },
       {
         params: {
-          category: 'do-maszyn-przemyslowych',
+          subcategory: 'do-maszyn-przemyslowych',
         },
       },
       {
         params: {
-          category: 'do-hafciarek/multi-hafciarek',
+          subcategory: 'do-hafciarek/multi-hafciarek',
         },
       },
       {
         params: {
-          category: 'maszyny-do-szycia',
+          subcategory: 'maszyny-do-szycia',
         },
       },
       {
         params: {
-          category: 'owerlocki',
+          subcategory: 'owerlocki',
         },
       },
       {
         params: {
-          category: 'hafciarki',
+          subcategory: 'hafciarki',
         },
       },
       {
         params: {
-          category: 'maszyny-przemyslowe',
+          subcategory: 'maszyny-przemyslowe',
         },
       },
     ],
@@ -176,7 +176,11 @@ export const getStaticPaths = () => {
 };
 
 export const getStaticProps = async (context) => {
-  const productList = await getProducts(context.params.category, 20);
+  const productList = await getProducts(
+    context.params.subcategory,
+    'category',
+    20
+  );
 
   return {
     props: { productList },

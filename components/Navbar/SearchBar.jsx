@@ -1,19 +1,34 @@
 import styled from 'styled-components';
 
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-import { setQuery, chageIsFocused } from '../../redux/searchQuery';
+const SearchBar = ({ changeSearchQuery, onInputFocus }) => {
+  const router = useRouter();
 
-const SearchBar = () => {
-  const dispatch = useDispatch();
+  const [pressedBtn, setPressedBtn] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    if (pressedBtn === 'Enter') {
+      router.push(`/search/${searchQuery}`);
+      setSearchQuery('');
+    }
+  }, [pressedBtn]);
+
+  const inputValueHandler = (value) => {
+    changeSearchQuery(value);
+    setSearchQuery(value);
+  };
 
   return (
-    <SearchbarStyled>
+    <SearchbarStyled onFocus={onInputFocus} onBlur={onInputFocus}>
       <input
         type='text'
         placeholder='Wyszukaj'
-        onChange={(e) => dispatch(setQuery(e.target.value))}
-        onFocus={() => chageIsFocused}
+        value={searchQuery}
+        onKeyPress={(e) => setPressedBtn(e.key)}
+        onChange={(e) => inputValueHandler(e.target.value)}
       />
 
       <SearchBtnStyled>
@@ -54,7 +69,7 @@ const SearchBtnStyled = styled.button`
   border-radius: 0 66px 66px 0;
   width: 45px;
   height: 35px;
-  background-color: ${(props) => props.theme.colors.purplePrimary};
+  background: transparent;
 
   img {
     width: 22px;
@@ -62,7 +77,7 @@ const SearchBtnStyled = styled.button`
   }
 
   &:hover {
-    background: #a2a7f2;
+    background: ${(props) => props.theme.colors.purpleLighter};
   }
 `;
 

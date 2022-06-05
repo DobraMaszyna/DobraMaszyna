@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const ProductInfo = ({ product, producer, image, pid }) => {
   return (
-    <Link href={`produkt/${pid}`}>
+    <Link href={`/produkt/${pid}`}>
       <ProductInfoStyled>
         <img src={`/productImages/${product}.jpeg`} alt='' />
         <div className='defaultInfo'>

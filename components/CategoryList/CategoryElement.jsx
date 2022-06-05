@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRef, useState, useEffect } from 'react';
+
 import styled from 'styled-components';
 
 const CategoryElement = ({ imgSrc, title, href, subcategories }) => {
@@ -27,7 +28,7 @@ const CategoryElement = ({ imgSrc, title, href, subcategories }) => {
       onMouseOver={() => setIsOver(true)}
       isOnRight={isOnRight}>
       <Link href={`/${href}`}>
-        <a>
+        <a class='parentLink'>
           <img src={imgSrc} alt='' />
           <p>{title}</p>
         </a>
@@ -36,17 +37,42 @@ const CategoryElement = ({ imgSrc, title, href, subcategories }) => {
       <div className='subcategories' ref={elementRef}>
         <div className='parentCategoriesContainer'>
           {subcategories.map((el) => (
-            <button onMouseOver={() => setHoveredCategory(el.name)}>
-              <p>{el.name}</p>
-              <img src='https://img.icons8.com/dotty/80/8E94F2/forward.png' />
-            </button>
+            <Link
+              href={`/category/${el.name
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .split(' ')
+                .join('-')
+                .toLowerCase()}`}>
+              <a
+                onMouseOver={() => setHoveredCategory(el.name)}
+                ref={elementRef}>
+                <p>{el.name}</p>
+                <img src='https://img.icons8.com/dotty/80/8E94F2/forward.png' />
+              </a>
+            </Link>
           ))}
         </div>
         <div className='subcategoriesContainer'>
           {hoveredCategory &&
             subcategories
               .filter((el) => el.name === hoveredCategory)[0]
-              .categories.map((el) => <p>{el}</p>)}
+              .categories.map((el) => (
+                <Link
+                  href={`/category/${hoveredCategory
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .split(' ')
+                    .join('-')
+                    .toLowerCase()}/${el
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .split(' ')
+                    .join('-')
+                    .toLowerCase()}`}>
+                  <a className='subcategoryElement'>{el}</a>
+                </Link>
+              ))}
         </div>
       </div>
     </CategoryElementStyled>
@@ -64,7 +90,10 @@ const CategoryElementStyled = styled.li`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.colors.onyx};
+    color: #7e7e80;
+  }
+
+  .parentLink {
     display: flex;
     align-items: center;
     width: 130px;
@@ -107,7 +136,7 @@ const CategoryElementStyled = styled.li`
       flex-direction: column;
       font-size: 20px;
 
-      button {
+      a {
         display: flex;
         align-items: center;
         border: none;
@@ -146,6 +175,10 @@ const CategoryElementStyled = styled.li`
           border-bottom: 2px solid
             ${(props) => props.theme.colors.purplePrimary};
         }
+      }
+
+      .subcategoryElement {
+        margin-block: 5px;
       }
     }
 
