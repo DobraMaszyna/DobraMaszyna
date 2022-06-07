@@ -18,12 +18,12 @@ export default async (req, res) => {
 
     form.parse(req, (err, fields, files) => {
       if (err) return reject(err);
-      console.log(fields);
+
       let oldPath = files.image.filepath;
       let newPath = `./public/productImages/${fields.name}.jpeg`;
 
       db.collection('products').insertOne({
-        price: fields.price,
+        price: parseInt(fields.price),
         priceBefore: 0,
         name: fields.name,
         producer: fields.producer,
@@ -33,11 +33,15 @@ export default async (req, res) => {
           category: fields.category,
           child: fields.child,
         },
-        equipment: fields.equipment.split('-'),
+        equipment: fields.equipment.split(';'),
         params: JSON.parse(fields.params),
+        video: fields.video,
       });
 
-      mv(oldPath, newPath, function (err) {});
+      mv(oldPath, newPath, function (err) {
+        console.log(err);
+      });
+      console.log('2');
       res.status(200).json();
     });
   });
