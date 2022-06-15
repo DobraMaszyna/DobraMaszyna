@@ -15,7 +15,7 @@ const NavElementStyled = styled(motion.li)`
   align-items: center;
 
   img {
-    width: 28px;
+    width: 30px;
     margin-right: 10px;
   }
 `;

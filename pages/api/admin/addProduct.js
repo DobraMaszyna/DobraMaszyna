@@ -19,6 +19,8 @@ export default async (req, res) => {
     form.parse(req, (err, fields, files) => {
       if (err) return reject(err);
 
+      console.log(fields, files);
+
       let oldPath = files.image.filepath;
       let newPath = `./public/productImages/${fields.name}.jpeg`;
 
@@ -29,9 +31,9 @@ export default async (req, res) => {
         producer: fields.producer,
         popularity: 0,
         category: {
-          parent: fields.parent,
+          parentCategory: fields.parentCategory,
           category: fields.category,
-          child: fields.child,
+          subcategory: fields.subcategory,
         },
         equipment: fields.equipment.split(';'),
         params: JSON.parse(fields.params),

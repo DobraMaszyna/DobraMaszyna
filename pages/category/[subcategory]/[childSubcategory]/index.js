@@ -18,6 +18,18 @@ export const getStaticPaths = () => {
     paths: [
       {
         params: {
+          subcategory: 'maszyny-do-szycia',
+          childSubcategory: 'maszyny-mechaniczne',
+        },
+      },
+      {
+        params: {
+          subcategory: 'maszyny-do-szycia',
+          childSubcategory: 'maszyny-komputerowe',
+        },
+      },
+      {
+        params: {
           subcategory: 'stebnowki',
           childSubcategory: 'z-pojedynczym-transportem',
         },
@@ -439,7 +451,7 @@ export const getStaticProps = async (context) => {
 
   const productList = await getProducts(
     context.params.childSubcategory,
-    'child',
+    'subcategory',
     20
   );
 

@@ -58,6 +58,8 @@ export const getStaticPaths = () => {
 export const getStaticProps = async (context) => {
   const productList = await getProducts(context.params.category, 'parent', 20);
 
+  console.log(productList);
+
   return {
     props: { productList },
     revalidate: 60,

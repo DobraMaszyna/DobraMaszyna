@@ -70,35 +70,41 @@ const CategoryList = () => {
 
 const CategoryContainerStyled = styled.div`
   .CategoryList {
-    width: 100%;
-    height: 150px;
-    background: white;
-    padding-top: 75px;
-    z-index: 90;
-    box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.1);
+    display: none;
+    align-items: center;
+    justify-items: center;
+  }
 
-    ul {
+  @media (min-width: 768px) {
+    .CategoryList {
       display: flex;
-      align-items: center;
-      justify-content: space-around;
-      height: 100%;
       width: 100%;
-      padding: 0 50px;
+      height: 150px;
+      background: white;
+      padding-top: 75px;
       z-index: 90;
+      box-shadow: 0px 4px 41px rgba(0, 0, 0, 0.1);
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        width: 100%;
+        padding: 0 50px;
+        z-index: 90;
+      }
+    }
+    p {
+      display: none;
     }
   }
 
-  //fixme: mobilefirst
-  @media (max-width: 768px) {
-    .CategoryList {
-      display: none;
-    }
+  @media (min-width: 1100px) {
     ul {
-      position: fixed;
-      width: 100%;
-      left: -120%;
-      text-align: center;
-      transition: all 0.6s;
+      p {
+        display: block;
+      }
     }
   }
 `;

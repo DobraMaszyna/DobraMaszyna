@@ -1,9 +1,32 @@
 import styled from 'styled-components';
 
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/dist/client/router';
+
 import ProductList from './ProductList/Index';
 import SortOptions from './SortOptions';
+import { useEffect } from 'react';
 
 const Main = ({ products }) => {
+  const router = useRouter();
+  const productFilter = useSelector(
+    (state) => state.productFilter.productFilter
+  );
+
+  useEffect(async () => {
+    console.log(productFilter);
+
+    const req = await fetch(
+      `/api/getProductList?c=${router.query.category}${
+        !router.query.childcategory
+          ? !router.query.subcategory
+            ? `&type=${router.query.category}`
+            : `&type=${router.query.subcategory}`
+          : `&type=${router.query.childcategory}`
+      }&f=${productFilter}`
+    );
+  }, [productFilter]);
+
   return (
     <MainStyled>
       <div className='ContentContainer card'>

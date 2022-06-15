@@ -124,10 +124,14 @@ const NavbarStyled = styled.nav`
     }
 
     ul {
-      width: 30%;
+      width: 25%;
       display: flex;
       justify-content: space-between;
       list-style: none;
+    }
+
+    p {
+      display: none;
     }
 
     .search {
@@ -136,8 +140,8 @@ const NavbarStyled = styled.nav`
       width: 32px;
       height: 32px;
       background-color: transparent;
-      margin-left: 30px;
       border: none;
+      margin-left: 18%;
 
       img {
         width: 100%;
@@ -175,8 +179,14 @@ const NavbarStyled = styled.nav`
       }
 
       ul {
-        width: 12%;
+        width: 15%;
         margin-left: auto;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      p {
+        display: block;
       }
     }
   }

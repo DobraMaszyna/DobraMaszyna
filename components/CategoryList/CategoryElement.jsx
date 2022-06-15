@@ -103,7 +103,7 @@ const CategoryElementStyled = styled.li`
   }
 
   img {
-    width: 26px;
+    width: 30px;
     z-index: 110;
   }
 

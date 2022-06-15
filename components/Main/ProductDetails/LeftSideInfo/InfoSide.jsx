@@ -29,11 +29,11 @@ const InfoSideStyled = styled.div`
   }
 
   .productName {
-    font-size: 2vw;
+    font-size: 24px;
   }
 
   .productProducer {
-    font-size: 1.2vw;
+    font-size: 20px;
   }
 
   .props-shortcut {
@@ -69,6 +69,14 @@ const InfoSideStyled = styled.div`
   @media only screen and (min-width: 768px) {
     width: 50%;
     padding: 3% 0% 3% 15%;
+
+    .productName {
+      font-size: 2vw;
+    }
+
+    .productProducer {
+      font-size: 1.2vw;
+    }
   }
 `;
 

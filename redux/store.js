@@ -7,10 +7,12 @@ import storage from 'redux-persist/lib/storage';
 import cart from './cart';
 import menu from './menu';
 import recentlyViewed from './recentlyViewed';
+import productFilter from './productFilter';
 
 const reducers = combineReducers({
   cart,
   menu,
+  productFilter,
   recentlyViewed,
 });
 

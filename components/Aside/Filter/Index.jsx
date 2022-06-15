@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 
-import { useQuery } from 'react-query';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from '../../../redux/productFilter';
 
 import FilterSection from './FilterSection';
 import FilterProducers from './FilterProducers';
@@ -9,11 +10,12 @@ import SubmitFilters from './SubmitFilters';
 import FilterPrice from './FilterPrice';
 
 const Filter = () => {
-  const [producers, setProducers] = useState([]);
-  const [maxPrice, setMaxPrice] = useState(null);
-  const [minPrice, setMinPrice] = useState(null);
+  const dispatch = useDispatch();
 
-  const submitFiltersHandler = () => {};
+  const [producers, setProducers] = useState([]);
+
+  const [maxPrice, setMaxPrice] = useState(9999999);
+  const [minPrice, setMinPrice] = useState(0);
 
   const producerHandler = (producer, isChecked) => {
     if (isChecked) {
@@ -28,12 +30,24 @@ const Filter = () => {
       <h1>Filtruj</h1>
 
       <FilterSection title='Cena'>
-        <FilterPrice />
+        <FilterPrice
+          changeMaxPrice={(e) => setMaxPrice(e.target.value)}
+          changeMinPrice={(e) => setMinPrice(e.target.value)}
+        />
       </FilterSection>
-      <FilterSection title='Producentci'>
+      <FilterSection title='Producenci'>
         <FilterProducers addProducer={producerHandler} />
       </FilterSection>
-      <SubmitFilters submit={submitFiltersHandler} />
+      <SubmitFilters
+        submit={() =>
+          dispatch(
+            changeFilter({
+              price: { $range: [minPrice, maxPrice] },
+              producer: { $in: producers },
+            })
+          )
+        }
+      />
     </FilterStyled>
   );
 };

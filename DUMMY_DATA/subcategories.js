@@ -1,7 +1,7 @@
 export const maszynyDomoweSubcategories = [
   {
     name: 'Maszyny do szycia',
-    categories: [],
+    categories: ['Maszyny komputerowe', 'Maszyny mechaniczne'],
   },
   {
     name: 'Owerloki',

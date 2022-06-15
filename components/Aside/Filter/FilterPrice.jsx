@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const FilterPrice = () => {
+const FilterPrice = ({ changeMaxPrice, changeMinPrice }) => {
   return (
     <FilterPriceStyled>
-      <input type='number' placeholder='od  zł' />
+      <input type='number' placeholder='od  zł' onChange={changeMinPrice} />
       <span>-</span>
-      <input type='number' placeholder='do  zł' />
+      <input type='number' placeholder='do  zł' onChange={changeMaxPrice} />
     </FilterPriceStyled>
   );
 };

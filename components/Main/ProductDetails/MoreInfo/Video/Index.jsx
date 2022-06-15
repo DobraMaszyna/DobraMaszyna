@@ -7,7 +7,7 @@ const Video = ({ video }) => {
       frameborder='0'
       style={{
         borderRadius: '20px',
-        width: '100vmin',
+        width: '98%',
         height: 'calc(100vmin / 2)',
         display: 'block',
         margin: '0 auto',
